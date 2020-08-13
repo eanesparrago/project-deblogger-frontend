@@ -62,12 +62,12 @@ S.UserControls = styled.div`
 
 const UserControls = ({ ...rest }) => {
   return (
-    <S.UserControls as="section" className="Home__UserControls">
+    <S.UserControls as="section" className="Home__UserControls" {...rest}>
       <a href="/" className="UserControls__write-button">
         Write a Post
       </a>
 
-      <NormalTextButton as="a">Sign In/Up</NormalTextButton>
+      <NormalTextButton as="a" href="/">Sign In/Up</NormalTextButton>
 
       <div className="UserControls__authenticatedState-block">
         <div className="UserControls__user-block">
@@ -82,7 +82,9 @@ const UserControls = ({ ...rest }) => {
           <UserAvatar size="medium"></UserAvatar>
         </div>
 
-        <NormalTextButton as="a" href="/">Admin Dashboard</NormalTextButton>
+        <NormalTextButton as="a" href="/">
+          Admin Dashboard
+        </NormalTextButton>
       </div>
     </S.UserControls>
   );

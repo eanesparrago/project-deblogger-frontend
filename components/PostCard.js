@@ -9,6 +9,9 @@ S.PostCard = styled.div`
   width: ${(p) => p.theme.size.free(512)};
   padding-top: ${(p) => p.theme.size.free(88)};
   position: relative;
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    width: unset;
+  }
 
   .PostCard__photo-wrapper {
     width: ${(p) => p.theme.size.free(128)};
@@ -21,6 +24,12 @@ S.PostCard = styled.div`
     left: ${(p) => p.theme.size[32]};
     -webkit-mask-image: linear-gradient(to bottom, transparent 25%, black 75%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__photo-wrapper {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .PostCard__photo-image {
@@ -40,6 +49,13 @@ S.PostCard = styled.div`
     padding-top: ${(p) => p.theme.size[24]};
     position: relative;
     border-bottom: 1px solid ${(p) => p.theme.color.blue};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__header-block {
+      padding: ${(p) => p.theme.size[24]};
+      padding-bottom: ${(p) => p.theme.size[32]};
+      position: relative;
+    }
   }
 
   .PostCard__headerOverlay {
@@ -75,6 +91,12 @@ S.PostCard = styled.div`
     position: relative;
     z-index: 1;
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__heading-text {
+      font-size: 1.5em;
+      text-align: center;
+    }
+  }
 
   .PostCard__category-wrapper {
     display: inline-flex;
@@ -87,6 +109,14 @@ S.PostCard = styled.div`
     height: ${(p) => p.theme.size[32]};
     left: ${(p) => p.theme.size[32]};
     bottom: -${(p) => p.theme.size[16]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__category-wrapper {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -${(p) => p.theme.size[16]};
+    }
   }
 
   .PostCard__category-text {
@@ -102,6 +132,13 @@ S.PostCard = styled.div`
     padding-left: ${(p) => p.theme.size[32]};
     padding-right: ${(p) => p.theme.size[32]};
     padding-bottom: ${(p) => p.theme.size[24]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__body-wrapper {
+      background-color: ${(p) => p.theme.color.dark};
+      padding: ${(p) => p.theme.size[24]};
+      padding-top: ${(p) => p.theme.size[32]};
+    }
   }
 
   .PostCard__author-block {
@@ -123,13 +160,22 @@ S.PostCard = styled.div`
   .PostCard__authorName-text {
     font-weight: bold;
     font-size: 1.1875em;
-    line-height: 100%;
     margin-bottom: ${(p) => p.theme.size[8]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__authorName-text {
+      font-weight: bold;
+      font-size: 1em;
+    }
   }
 
   .PostCard__date-text {
-    line-height: 100%;
     color: ${(p) => p.theme.color.lightMuted};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__date-text {
+      font-size: 0.875em;
+    }
   }
 
   .PostCard__excerpt-text {
@@ -138,6 +184,12 @@ S.PostCard = styled.div`
     line-height: 150%;
     margin-bottom: ${(p) => p.theme.size[8]};
     color: ${(p) => p.theme.color.lightMuted};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__excerpt-text {
+      font-size: 1em;
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 
   .PostCard__footer-block {
@@ -148,8 +200,13 @@ S.PostCard = styled.div`
 
   .PostCard__tags-text {
     font-style: italic;
-    line-height: 100%;
     color: ${(p) => p.theme.color.lightMuted};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__tags-text {
+      font-size: 0.875em;
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 
   .PostCard__read-button {
@@ -158,10 +215,14 @@ S.PostCard = styled.div`
     align-items: center;
     font-weight: bold;
     font-size: 1.1875em;
-    line-height: 100%;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: ${(p) => p.theme.color.blue};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .PostCard__read-button {
+      display: none;
+    }
   }
 `;
 
