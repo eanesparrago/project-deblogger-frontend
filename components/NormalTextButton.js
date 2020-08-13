@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const S = {};
 
-S.NormalTextButton = styled.a`
+S.NormalTextButton = styled.button`
   display: inline-flex;
   align-items: center;
   height: ${(p) => p.theme.size[48]};

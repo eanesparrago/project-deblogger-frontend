@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const S = {};
 
-S.UppercaseTextButton = styled.a`
+S.UppercaseTextButton = styled.button`
   display: inline-flex;
   align-items: center;
   height: ${(p) => p.theme.size[48]};

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const S = {};
 
@@ -10,6 +10,12 @@ S.DebloggerLogo = styled.div`
   color: ${(p) => p.theme.color.primary.main};
   line-height: 100%;
   letter-spacing: -0.02em;
+
+  ${(p) =>
+    p.size === "large" &&
+    css`
+      font-size: 3em;
+    `}
 `;
 
 const DebloggerLogo = (props) => {

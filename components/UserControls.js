@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 import NormalTextButton from "./NormalTextButton";
 import UserAvatar from "./UserAvatar";
@@ -67,7 +67,11 @@ const UserControls = ({ ...rest }) => {
         Write a Post
       </a>
 
-      <NormalTextButton as="a" href="/">Sign In/Up</NormalTextButton>
+      <Link href="/sign-in" passHref={true}>
+        <a>
+          <NormalTextButton href="/">Sign In/Up</NormalTextButton>
+        </a>
+      </Link>
 
       <div className="UserControls__authenticatedState-block">
         <div className="UserControls__user-block">

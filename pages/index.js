@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 
 import PostCard from "components/PostCard";
@@ -154,13 +155,13 @@ export default function Home() {
 
         <button className="MobileHeader__pageLabel-button">Homepage</button>
 
-        <UppercaseTextButton
-          as="a"
-          href="/"
-          className="MobileHeader__UppercaseTextButton"
-        >
-          Sign In
-        </UppercaseTextButton>
+        <Link href="/sign-in" passHref={true}>
+          <a>
+            <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
+              Sign In
+            </UppercaseTextButton>
+          </a>
+        </Link>
       </S.MobileHeader>
 
       <main className="Home__main">
