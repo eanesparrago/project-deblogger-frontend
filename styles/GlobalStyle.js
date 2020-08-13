@@ -11,15 +11,16 @@ export default createGlobalStyle`
   }
   
   body {
-    font-size: 19px;
+    font-size: 16px;
     font-family: ${theme.font.sansSerif};
     overflow-y: scroll;
     color: ${(p) => p.theme.color.light};
     background-color: ${p => p.theme.color.bg};
+    line-height: 1;
   }
 
   a:focus, button:focus {
-    outline: 1px solid black !important;
+    outline: 1px solid ${p => p.theme.color.white} !important;
   }
  
 `;
