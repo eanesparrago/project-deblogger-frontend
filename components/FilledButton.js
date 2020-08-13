@@ -12,6 +12,9 @@ S.FilledButton = styled.button`
   border-radius: 8px;
   box-shadow: ${(p) => p.theme.shadow.small};
   font-size: 1.1875em;
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    font-size: 1em;
+  }
 `;
 
 const FilledButton = ({ children, ...rest }) => {

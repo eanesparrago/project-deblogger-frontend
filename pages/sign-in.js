@@ -9,29 +9,61 @@ const S = {};
 
 S.SignIn = styled.div`
   padding-top: ${(p) => p.theme.size[96]};
+  padding-bottom: ${(p) => p.theme.size[64]};
   display: flex;
   flex-flow: column;
   align-items: center;
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    padding-top: ${(p) => p.theme.size[64]};
+    padding-left: ${(p) => p.theme.size[16]};
+    padding-right: ${(p) => p.theme.size[16]};
+  }
 
   .SignIn__DebloggerLogo {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__DebloggerLogo {
+      font-size: 2em;
+    }
+  }
 
   .SignIn__continue-button {
     margin-bottom: ${(p) => p.theme.size[64]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__continue-button {
+      margin-bottom: ${(p) => p.theme.size[48]};
+    }
   }
 
   .SignIn__form {
     width: ${(p) => p.theme.size.free(384)};
     margin-bottom: ${(p) => p.theme.size[48]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__form {
+      width: 100%;
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
+  }
 
   .SignIn__emailFormItem {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__emailFormItem {
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
+  }
 
   .SignIn__passwordFormItem {
     margin-bottom: ${(p) => p.theme.size[24]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__passwordFormItem {
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 
   .SignIn__divider {
@@ -40,6 +72,12 @@ S.SignIn = styled.div`
     background-color: ${(p) => p.theme.color.grey};
     margin-bottom: ${(p) => p.theme.size[32]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__divider {
+      width: 100%;
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
+  }
 
   .SignIn__SignUpForm {
     position: fixed;
@@ -47,6 +85,14 @@ S.SignIn = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignIn__SignUpForm {
+      top: ${(p) => p.theme.size[16]};
+      left: ${(p) => p.theme.size[16]};
+      right: ${(p) => p.theme.size[16]};
+      transform: none;
+    }
   }
 
   .SignIn__dimOverlay {
@@ -67,6 +113,11 @@ S.FormItem = styled.div`
     color: ${(p) => p.theme.color.lightMuted};
     margin-bottom: ${(p) => p.theme.size[12]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .FormItem__label-text {
+      font-size: 1em;
+    }
+  }
 
   .FormItem__input {
     height: ${(p) => p.theme.size[48]};
@@ -74,6 +125,10 @@ S.FormItem = styled.div`
     border: 1px solid ${(p) => p.theme.color.grey};
     border-radius: 8px;
     padding-left: ${(p) => p.theme.size[16]};
+
+    &:focus {
+      border: 1px solid ${(p) => p.theme.color.lightMuted};
+    }
   }
 `;
 
@@ -84,11 +139,20 @@ S.SignUpForm = styled.div`
   border-radius: 8px;
   box-shadow: ${(p) => p.theme.shadow.big};
   position: relative;
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    width: unset;
+    padding: ${(p) => p.theme.size[24]} ${(p) => p.theme.size[16]};
+  }
 
   .SignUpForm__cancel-button {
     position: absolute;
     top: ${(p) => p.theme.size[8]};
     right: ${(p) => p.theme.size[32]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignUpForm__cancel-button {
+      right: ${(p) => p.theme.size[24]};
+    }
   }
 
   .SignUpForm__heading-text {
@@ -96,17 +160,37 @@ S.SignUpForm = styled.div`
     font-size: 2em;
     margin-bottom: ${(p) => p.theme.size[32]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignUpForm__heading-text {
+      margin-bottom: ${(p) => p.theme.size[64]};
+    }
+  }
 
   .SignUpForm__usernameFormItem {
     margin-bottom: ${(p) => p.theme.size[32]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignUpForm__usernameFormItem {
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
   }
 
   .SignUpForm__emailFormItem {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignUpForm__emailFormItem {
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
+  }
 
   .SignUpForm__passwordFormItem {
     margin-bottom: ${(p) => p.theme.size[48]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .SignUpForm__passwordFormItem {
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
   }
 `;
 
@@ -129,7 +213,7 @@ const SignIn = () => {
       ></DebloggerLogo>
 
       <UppercaseTextButton className="SignIn__continue-button">
-        Continue Without an Account
+        Continue as Guest
       </UppercaseTextButton>
 
       <form className="SignIn__form">
@@ -184,7 +268,7 @@ const SignIn = () => {
               <input
                 className="FormItem__input"
                 id="signUpUsername"
-                type="email"
+                type="text"
               />
             </S.FormItem>
 
@@ -208,7 +292,7 @@ const SignIn = () => {
               <input
                 className="FormItem__input"
                 id="signUpPassword"
-                type="email"
+                type="password"
               />
             </S.FormItem>
 
@@ -217,7 +301,12 @@ const SignIn = () => {
         </S.SignUpForm>
       )}
 
-      {isSignUpFormOpen && <div className="SignIn__dimOverlay"></div>}
+      {isSignUpFormOpen && (
+        <div
+          className="SignIn__dimOverlay"
+          onClick={handleCloseSignUpFormClick}
+        ></div>
+      )}
     </S.SignIn>
   );
 };
