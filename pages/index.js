@@ -1,33 +1,12 @@
 import Head from "next/head";
-import Link from "next/link";
 import styled from "styled-components";
 
 import PostCard from "components/PostCard";
-import Navbar from "components/Navbar";
-import UserControls from "components/UserControls";
-import DebloggerLogo from "components/DebloggerLogo";
-import UppercaseTextButton from "components/UppercaseTextButton";
+import CommonLayout from "components/CommonLayout";
 
 const S = {};
 
 S.Home = styled.div`
-  .Home__left-block {
-    padding-top: ${(p) => p.theme.size[64]};
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__left-block {
-      display: none;
-    }
-  }
-
-  .Home__DebloggerLogo {
-    margin-bottom: ${(p) => p.theme.size[48]};
-    margin-left: ${(p) => p.theme.size[96]};
-  }
-
   .Home__main {
     margin: 0 auto;
     width: ${(p) => p.theme.size.free(1088)};
@@ -70,26 +49,6 @@ S.Home = styled.div`
       }
     }
   }
-
-  .Home__UserControls {
-    position: fixed;
-    top: ${(p) => p.theme.size[64]};
-    right: ${(p) => p.theme.size[48]};
-  }
-  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__UserControls {
-      display: none;
-    }
-  }
-
-  .Home__MobileHeader {
-    display: none;
-  }
-  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__MobileHeader {
-      display: flex;
-    }
-  }
 `;
 
 S.SearchBox = styled.div`
@@ -111,75 +70,29 @@ S.SearchBox = styled.div`
   }
 `;
 
-S.MobileHeader = styled.div`
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  height: ${(p) => p.theme.size[64]};
-  background-color: ${(p) => p.theme.color.dark};
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 0 ${(p) => p.theme.size[16]};
-  z-index: 100;
-
-  .MobileHeader__pageLabel-button {
-    font-size: 1.1875em;
-    font-weight: 700;
-    color: ${(p) => p.theme.color.primary.main};
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    height: ${(p) => p.theme.size[48]};
-  }
-`;
-
 export default function Home() {
   return (
-    <S.Home>
+    <CommonLayout>
       <Head>
         <title>Create Next App</title>
       </Head>
 
-      <div className="Home__left-block">
-        <DebloggerLogo className="Home__DebloggerLogo">Deblogger</DebloggerLogo>
+      <S.Home>
+        <main className="Home__main">
+          <div className="Home__widget-block">
+            <S.SearchBox>
+              <input type="text" placeholder="Search posts" />
+            </S.SearchBox>
+          </div>
 
-        <Navbar></Navbar>
-      </div>
-
-      <S.MobileHeader as="header" className="Home__MobileHeader">
-        <DebloggerLogo variant="initials"></DebloggerLogo>
-
-        <button className="MobileHeader__pageLabel-button">Homepage</button>
-
-        <Link href="/sign-in" passHref={true}>
-          <a>
-            <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
-              Sign In
-            </UppercaseTextButton>
-          </a>
-        </Link>
-      </S.MobileHeader>
-
-      <main className="Home__main">
-        <div className="Home__widget-block">
-          <S.SearchBox>
-            <input type="text" placeholder="Search posts" />
-          </S.SearchBox>
-        </div>
-
-        <section className="Home__PostCard-group">
-          <PostCard></PostCard>
-          <PostCard></PostCard>
-          <PostCard></PostCard>
-          <PostCard></PostCard>
-        </section>
-      </main>
-
-      <UserControls as="section" className="Home__UserControls"></UserControls>
-    </S.Home>
+          <section className="Home__PostCard-group">
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+          </section>
+        </main>
+      </S.Home>
+    </CommonLayout>
   );
 }

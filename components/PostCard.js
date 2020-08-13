@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 import UserAvatar from "./UserAvatar";
 
@@ -278,9 +278,9 @@ const PostCard = () => {
               React, Next.js, UI Design
             </span>
 
-            <a href="/" className="PostCard__read-button">
-              READ
-            </a>
+            <Link href="/post/test">
+              <a className="PostCard__read-button">READ</a>
+            </Link>
           </footer>
         </div>
       </div>

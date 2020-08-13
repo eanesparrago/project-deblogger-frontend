@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 import DebloggerLogo from "components/DebloggerLogo";
 import UppercaseTextButton from "components/UppercaseTextButton";
@@ -212,9 +213,13 @@ const SignIn = () => {
         size="large"
       ></DebloggerLogo>
 
-      <UppercaseTextButton className="SignIn__continue-button">
-        Continue as Guest
-      </UppercaseTextButton>
+      <Link href="/">
+        <a>
+          <UppercaseTextButton className="SignIn__continue-button">
+            Continue as Guest
+          </UppercaseTextButton>
+        </a>
+      </Link>
 
       <form className="SignIn__form">
         <S.FormItem className="SignIn__emailFormItem">
