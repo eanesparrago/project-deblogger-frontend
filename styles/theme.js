@@ -9,32 +9,26 @@ export default {
     desktopXXL: "125rem", // 2000px
   },
   font: {
-    sansSerif: "Open Sans, sans-serif",
-    serif: "Faustina, serif",
+    sansSerif: "Roboto, sans-serif",
+    serif: "Roboto Slab, serif",
   },
   color: {
     primary: {
-      main: "#00873A",
-      dark: "#005A27",
+      main: "#FF9800",
     },
-    secondary: {
-      main: "#BF7D0A",
-    },
-    tertiary: {
-      main: "",
-      light: "",
-      dark: "",
-    },
+    light: "#E2EBF0",
+    lightMuted: "#B0BEC5",
+    dark: "#151B1F",
     white: "#FFFFFF",
     black: "#000000",
-    grey: {
-      800: "#424242",
-      500: "#9E9E9E",
-      100: "#F5F5F5",
-    },
-    pink: "#E91E63",
-    blue: "#2196F3",
+    blue: "#1E88E5",
     red: "#F44336",
+    lime: "#CDDC39",
+    purple: "#9C27B0",
+    amber: "#FFC107",
+    green: "#4CAF50",
+    grey: "#5B6266",
+    bg: "#0A0E0F",
   },
   size: {
     2: "0.125rem",
@@ -47,10 +41,10 @@ export default {
     48: "3rem",
     64: "4rem",
     96: "6rem",
-    pixel: (pixel) => `${pixel / 16}rem`,
+    free: (pixel) => `${pixel / 16}rem`,
   },
   shadow: {
     small: "0px 4px 4px rgba(0, 0, 0, 0.2);",
-    big: "0px 8px 8px rgba(0, 0, 0, 0.2);",
+    big: "0px 8px 16px rgba(0, 0, 0, 0.5);",
   },
 };
