@@ -11,14 +11,40 @@ S.Post = styled.article`
   width: ${(p) => p.theme.size.free(1056)};
   padding-top: ${(p) => p.theme.size[64]};
   padding-bottom: ${(p) => p.theme.size[64]};
+  overflow: hidden;
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    padding-top: ${(p) => p.theme.size.free(80)};
+    width: 62%;
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopM}) {
+    width: 100%;
+    padding-left: ${(p) => p.theme.size[96]};
+    padding-right: ${(p) => p.theme.size[96]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    padding-left: ${(p) => p.theme.size[24]};
+    padding-right: ${(p) => p.theme.size[24]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    padding-left: ${(p) => p.theme.size[16]};
+    padding-right: ${(p) => p.theme.size[16]};
+  }
 
   .Post__header-block {
     position: relative;
     margin-bottom: ${(p) => p.theme.size[48]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__header-block {
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
+  }
 
   .Post__back-button {
     margin-bottom: ${(p) => p.theme.size[16]};
+    display: block;
+    position: relative;
+    left: 1px;
   }
 
   .Post__category {
@@ -26,7 +52,6 @@ S.Post = styled.article`
     top: ${(p) => p.theme.size[8]};
     right: ${(p) => p.theme.size.free(256)};
     z-index: -2;
-
     display: inline-flex;
     align-items: center;
     background-color: ${(p) => p.theme.color.blue};
@@ -36,11 +61,17 @@ S.Post = styled.article`
     box-shadow: ${(p) => p.theme.shadow.small};
     position: absolute;
     height: ${(p) => p.theme.size[32]};
-
     font-weight: 700;
     line-height: 100%;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__category {
+      position: static;
+      padding-right: ${(p) => p.theme.size[16]};
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
   }
 
   .Post__title-text {
@@ -52,11 +83,30 @@ S.Post = styled.article`
     text-shadow: ${(p) => p.theme.shadow.small};
     margin-bottom: ${(p) => p.theme.size[32]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    .Post__title-text {
+      width: 100%;
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .Post__title-text {
+      font-size: 2em;
+      line-height: 150%;
+      font-weight: 300;
+      margin-bottom: ${(p) => p.theme.size[16]};
+    }
+  }
 
   .Post__author-block {
     display: flex;
     align-items: center;
     margin-bottom: ${(p) => p.theme.size[32]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__author-block {
+      margin-bottom: ${(p) => p.theme.size[24]};
+    }
   }
 
   .Post__authorText-block {
@@ -70,9 +120,19 @@ S.Post = styled.article`
     font-size: 1.1875em;
     margin-bottom: ${(p) => p.theme.size[12]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .Post__authorName-text {
+      font-size: 1em;
+    }
+  }
 
   .Post__authorDate-text {
     color: ${(p) => p.theme.color.lightMuted};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .Post__authorDate-text {
+      font-size: 0.875em;
+    }
   }
 
   .Post__tags-text {
@@ -80,11 +140,21 @@ S.Post = styled.article`
     font-style: italic;
     margin-bottom: ${(p) => p.theme.size[16]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .Post__tags-text {
+      font-size: 0.875em;
+    }
+  }
 
   .Post__divider-graphic {
     width: 62%;
     height: 1px;
     background-color: ${(p) => p.theme.color.blue};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__divider-graphic {
+      width: 100%;
+    }
   }
 
   .Post__photo-wrapper {
@@ -103,24 +173,66 @@ S.Post = styled.article`
       transparent 100%
     );
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__photo-wrapper {
+      width: ${(p) => p.theme.size.free(384)};
+      height: ${(p) => p.theme.size.free(384)};
+      top: ${(p) => p.theme.size[32]};
+    }
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    .Post__photo-wrapper {
+      right: -${(p) => p.theme.size[64]};
+    }
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .Post__photo-wrapper {
+      width: ${(p) => p.theme.size.free(336)};
+      height: ${(p) => p.theme.size.free(336)};
+    }
+  }
 
   .Post__photo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(90%);
+    filter: brightness(80%);
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+    .Post__photo-image {
+      filter: brightness(60%);
+    }
   }
 
   .Post__content-block {
+    width: 62%;
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__content-block {
+      width: 100%;
+    }
   }
 
   .Post__contentParagraph-text {
-    width: 62%;
     font-weight: 300;
     font-size: 1.3125em;
     line-height: 180%;
     color: ${(p) => p.theme.color.lightMuted};
     margin-bottom: ${(p) => p.theme.size[32]};
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+    .Post__contentParagraph-text {
+    }
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    .Post__contentParagraph-text {
+      font-size: 1.1875em;
+    }
   }
 `;
 
@@ -143,15 +255,18 @@ const Post = () => {
             <UserAvatar
               className="Post__authorPhoto-UserAvatar"
               size="medium"
+              responsive
             ></UserAvatar>
 
             <div className="Post__authorText-block">
               <div className="Post__authorName-text">
-                Written by <strong>Kat Meows</strong>
+                <span className="util-hideOnPhone">Written by </span>
+                <strong>Kat Meows</strong>
               </div>
 
               <div className="Post__authorDate-text">
-                Published on August 10, 2020 (Monday)
+                <span className="util-hideOnPhone">Published on </span>
+                August 10, 2020 (Monday)
               </div>
             </div>
           </div>

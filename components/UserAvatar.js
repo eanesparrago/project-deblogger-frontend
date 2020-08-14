@@ -16,6 +16,16 @@ S.UserAvatar = styled.div`
       height: ${(p) => p.theme.size[64]};
     `}
 
+  ${(p) =>
+    p.responsive &&
+    css`
+      @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+        width: ${(p) => p.theme.size[48]};
+        height: ${(p) => p.theme.size[48]};
+      }
+    `}
+
+
   .UserAvatar__userPhoto-image {
     width: 100%;
     height: 100%;
