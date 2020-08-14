@@ -13,6 +13,7 @@ S.SignIn = styled.div`
   padding-bottom: ${(p) => p.theme.size[64]};
   display: flex;
   flex-flow: column;
+  justify-content: flex-start;
   align-items: center;
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
     padding-top: ${(p) => p.theme.size[64]};
@@ -214,10 +215,8 @@ const SignIn = () => {
       ></DebloggerLogo>
 
       <Link href="/">
-        <a>
-          <UppercaseTextButton className="SignIn__continue-button">
-            Continue as Guest
-          </UppercaseTextButton>
+        <a className="SignIn__continue-button">
+          <UppercaseTextButton>Continue as Guest</UppercaseTextButton>
         </a>
       </Link>
 

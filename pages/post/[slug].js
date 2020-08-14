@@ -241,7 +241,7 @@ const Post = () => {
     <CommonLayout>
       <S.Post>
         <div className="Post__header-block">
-          <UppercaseTextButton className="Post__back-button">
+          <UppercaseTextButton as="button" className="Post__back-button">
             Back
           </UppercaseTextButton>
 

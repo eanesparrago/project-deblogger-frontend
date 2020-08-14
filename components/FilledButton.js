@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 const S = {};
 
-S.FilledButton = styled.button`
+S.FilledButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: ${(p) => p.theme.size[48]};
   background-color: ${(p) => p.theme.color.primary.main};
   width: 100%;
