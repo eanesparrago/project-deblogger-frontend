@@ -7,7 +7,7 @@ S.InnerLayout = styled.div`
   width: ${(p) => p.theme.size.free(1056)};
   padding-top: ${(p) => p.theme.size[64]};
   padding-bottom: ${(p) => p.theme.size[64]};
-  overflow: hidden;
+  /* overflow: hidden; */
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
     padding-top: ${(p) => p.theme.size.free(80)};
     width: 62%;

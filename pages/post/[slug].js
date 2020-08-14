@@ -6,6 +6,82 @@ import InnerLayout from "components/InnerLayout";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import UserAvatar from "components/UserAvatar";
 
+const Post = () => {
+  return (
+    <CommonLayout>
+      <S.Post as="article">
+        <InnerLayout>
+          <div className="Post__header-block">
+            <Link href="/">
+              <a className="Post__back-button">
+                <UppercaseTextButton>Back</UppercaseTextButton>
+              </a>
+            </Link>
+
+            <div className="Post__category">Development</div>
+
+            <h1 className="Post__title-text">
+              8 Tailwind CSS resources to help your next project takeoff
+            </h1>
+
+            <div className="Post__author-block">
+              <UserAvatar
+                className="Post__authorPhoto-UserAvatar"
+                size="medium"
+                responsive
+              ></UserAvatar>
+
+              <div className="Post__authorText-block">
+                <div className="Post__authorName-text">
+                  <span className="util-hideOnPhone">Written by </span>
+                  <strong>Kat Meows</strong>
+                </div>
+
+                <div className="Post__authorDate-text">
+                  <span className="util-hideOnPhone">Published on </span>
+                  August 10, 2020 (Monday)
+                </div>
+              </div>
+            </div>
+
+            <div className="Post__tags-text">
+              Tags: React, Next.js, UI Design
+            </div>
+
+            <div className="Post__divider-graphic"></div>
+
+            <div className="Post__photo-wrapper">
+              <img
+                src="/static/images/post_photo_01.jpg"
+                alt=""
+                className="Post__photo-image"
+              />
+            </div>
+          </div>
+
+          <div className="Post__content-block">
+            <p className="Post__contentParagraph-text">
+              If it fits i sits stand with legs in litter box, but poop outside
+              for curl up and sleep on the freshly laundered towels sleep on my
+              human's head, sleep on my human's head purrrrrr instead of
+              drinking water from the cat bowl, make sure to steal water from
+              the toilet.
+            </p>
+
+            <p className="Post__contentParagraph-text">
+              If it fits i sits stand with legs in litter box, but poop outside
+              for curl up and sleep on the freshly laundered towels sleep on my
+              human's head, sleep on my human's head purrrrrr instead of
+              drinking water from the cat bowl, make sure to steal water from
+              the toilet.
+            </p>
+          </div>
+        </InnerLayout>
+      </S.Post>
+    </CommonLayout>
+  );
+};
+
 const S = {};
 
 S.Post = styled.div`
@@ -218,81 +294,5 @@ S.Post = styled.div`
     }
   }
 `;
-
-const Post = () => {
-  return (
-    <CommonLayout>
-      <S.Post as="article">
-        <InnerLayout>
-          <div className="Post__header-block">
-            <Link href="/">
-              <a className="Post__back-button">
-                <UppercaseTextButton>Back</UppercaseTextButton>
-              </a>
-            </Link>
-
-            <div className="Post__category">Development</div>
-
-            <h1 className="Post__title-text">
-              8 Tailwind CSS resources to help your next project takeoff
-            </h1>
-
-            <div className="Post__author-block">
-              <UserAvatar
-                className="Post__authorPhoto-UserAvatar"
-                size="medium"
-                responsive
-              ></UserAvatar>
-
-              <div className="Post__authorText-block">
-                <div className="Post__authorName-text">
-                  <span className="util-hideOnPhone">Written by </span>
-                  <strong>Kat Meows</strong>
-                </div>
-
-                <div className="Post__authorDate-text">
-                  <span className="util-hideOnPhone">Published on </span>
-                  August 10, 2020 (Monday)
-                </div>
-              </div>
-            </div>
-
-            <div className="Post__tags-text">
-              Tags: React, Next.js, UI Design
-            </div>
-
-            <div className="Post__divider-graphic"></div>
-
-            <div className="Post__photo-wrapper">
-              <img
-                src="/static/images/post_photo_01.jpg"
-                alt=""
-                className="Post__photo-image"
-              />
-            </div>
-          </div>
-
-          <div className="Post__content-block">
-            <p className="Post__contentParagraph-text">
-              If it fits i sits stand with legs in litter box, but poop outside
-              for curl up and sleep on the freshly laundered towels sleep on my
-              human's head, sleep on my human's head purrrrrr instead of
-              drinking water from the cat bowl, make sure to steal water from
-              the toilet.
-            </p>
-
-            <p className="Post__contentParagraph-text">
-              If it fits i sits stand with legs in litter box, but poop outside
-              for curl up and sleep on the freshly laundered towels sleep on my
-              human's head, sleep on my human's head purrrrrr instead of
-              drinking water from the cat bowl, make sure to steal water from
-              the toilet.
-            </p>
-          </div>
-        </InnerLayout>
-      </S.Post>
-    </CommonLayout>
-  );
-};
 
 export default Post;
