@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 import CommonLayout from "components/CommonLayout";
 import UppercaseTextButton from "components/UppercaseTextButton";
@@ -32,6 +33,9 @@ S.Post = styled.article`
 
   .Post__header-block {
     position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
     margin-bottom: ${(p) => p.theme.size[48]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
@@ -44,7 +48,7 @@ S.Post = styled.article`
     margin-bottom: ${(p) => p.theme.size[16]};
     display: block;
     position: relative;
-    left: 1px;
+    left: 2px;
   }
 
   .Post__category {
@@ -241,9 +245,11 @@ const Post = () => {
     <CommonLayout>
       <S.Post>
         <div className="Post__header-block">
-          <UppercaseTextButton as="button" className="Post__back-button">
-            Back
-          </UppercaseTextButton>
+          <Link href="/">
+            <a className="Post__back-button">
+              <UppercaseTextButton>Back</UppercaseTextButton>
+            </a>
+          </Link>
 
           <div className="Post__category">Development</div>
 
