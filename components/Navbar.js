@@ -19,8 +19,8 @@ S.Navbar = styled.nav`
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
     & > a {
-      width: ${(p) => p.theme.size.free(256)};
-      padding-left: ${(p) => p.theme.size[96]};
+      width: ${(p) => p.theme.size.free(240)};
+      padding-left: ${(p) => p.theme.size.free(80)};
     }
   }
 

@@ -27,7 +27,7 @@ S.CommonLayout = styled.div`
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
     .Home__DebloggerLogo {
-      margin-left: ${(p) => p.theme.size[64]};
+      margin-left: ${(p) => p.theme.size[48]};
     }
   }
 

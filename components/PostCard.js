@@ -257,7 +257,11 @@ const PostCard = () => {
 
         <div className="PostCard__body-wrapper">
           <div className="PostCard__author-block">
-            <UserAvatar className="PostCard__UserAvatar"></UserAvatar>
+            <Link href="/profile/[username]" as="/profile/test">
+              <a className="PostCard__UserAvatar">
+                <UserAvatar></UserAvatar>
+              </a>
+            </Link>
 
             <div className="PostCard__authorDetail-block">
               <div className="PostCard__authorName-text">Kat Meows</div>
