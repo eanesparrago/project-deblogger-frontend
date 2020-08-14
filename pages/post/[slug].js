@@ -6,61 +6,61 @@ import InnerLayout from "components/InnerLayout";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import UserAvatar from "components/UserAvatar";
 
-const Post = () => {
+const PostPage = () => {
   return (
     <CommonLayout>
-      <S.Post as="article">
+      <S.PostPage as="article">
         <InnerLayout>
-          <div className="Post__header-block">
+          <div className="PostPage__header-block">
             <Link href="/">
-              <a className="Post__back-button">
+              <a className="PostPage__back-button">
                 <UppercaseTextButton>Back</UppercaseTextButton>
               </a>
             </Link>
 
-            <div className="Post__category">Development</div>
+            <div className="PostPage__category">Development</div>
 
-            <h1 className="Post__title-text">
+            <h1 className="PostPage__title-text">
               8 Tailwind CSS resources to help your next project takeoff
             </h1>
 
-            <div className="Post__author-block">
+            <div className="PostPage__author-block">
               <UserAvatar
-                className="Post__authorPhoto-UserAvatar"
+                className="PostPage__authorPhoto-UserAvatar"
                 size="medium"
                 responsive
               ></UserAvatar>
 
-              <div className="Post__authorText-block">
-                <div className="Post__authorName-text">
+              <div className="PostPage__authorText-block">
+                <div className="PostPage__authorName-text">
                   <span className="util-hideOnPhone">Written by </span>
                   <strong>Kat Meows</strong>
                 </div>
 
-                <div className="Post__authorDate-text">
+                <div className="PostPage__authorDate-text">
                   <span className="util-hideOnPhone">Published on </span>
                   August 10, 2020 (Monday)
                 </div>
               </div>
             </div>
 
-            <div className="Post__tags-text">
+            <div className="PostPage__tags-text">
               Tags: React, Next.js, UI Design
             </div>
 
-            <div className="Post__divider-graphic"></div>
+            <div className="PostPage__divider-graphic"></div>
 
-            <div className="Post__photo-wrapper">
+            <div className="PostPage__photo-wrapper">
               <img
                 src="/static/images/post_photo_01.jpg"
                 alt=""
-                className="Post__photo-image"
+                className="PostPage__photo-image"
               />
             </div>
           </div>
 
-          <div className="Post__content-block">
-            <p className="Post__contentParagraph-text">
+          <div className="PostPage__content-block">
+            <p className="PostPage__contentParagraph-text">
               If it fits i sits stand with legs in litter box, but poop outside
               for curl up and sleep on the freshly laundered towels sleep on my
               human's head, sleep on my human's head purrrrrr instead of
@@ -68,7 +68,7 @@ const Post = () => {
               the toilet.
             </p>
 
-            <p className="Post__contentParagraph-text">
+            <p className="PostPage__contentParagraph-text">
               If it fits i sits stand with legs in litter box, but poop outside
               for curl up and sleep on the freshly laundered towels sleep on my
               human's head, sleep on my human's head purrrrrr instead of
@@ -77,15 +77,17 @@ const Post = () => {
             </p>
           </div>
         </InnerLayout>
-      </S.Post>
+      </S.PostPage>
     </CommonLayout>
   );
 };
 
 const S = {};
 
-S.Post = styled.div`
-  .Post__header-block {
+S.PostPage = styled.div`
+  overflow: hidden;
+
+  .PostPage__header-block {
     position: relative;
     display: flex;
     flex-flow: column;
@@ -93,19 +95,19 @@ S.Post = styled.div`
     margin-bottom: ${(p) => p.theme.size[48]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__header-block {
+    .PostPage__header-block {
       margin-bottom: ${(p) => p.theme.size[32]};
     }
   }
 
-  .Post__back-button {
+  .PostPage__back-button {
     margin-bottom: ${(p) => p.theme.size[16]};
     display: block;
     position: relative;
     left: 2px;
   }
 
-  .Post__category {
+  .PostPage__category {
     position: absolute;
     top: ${(p) => p.theme.size[8]};
     right: ${(p) => p.theme.size.free(256)};
@@ -125,14 +127,14 @@ S.Post = styled.div`
     text-transform: uppercase;
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__category {
+    .PostPage__category {
       position: static;
       padding-right: ${(p) => p.theme.size[16]};
       margin-bottom: ${(p) => p.theme.size[16]};
     }
   }
 
-  .Post__title-text {
+  .PostPage__title-text {
     width: 62%;
     font-size: 3.875em;
     font-family: ${(p) => p.theme.font.serif};
@@ -142,13 +144,13 @@ S.Post = styled.div`
     margin-bottom: ${(p) => p.theme.size[32]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
-    .Post__title-text {
+    .PostPage__title-text {
       width: 100%;
       margin-bottom: ${(p) => p.theme.size[24]};
     }
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Post__title-text {
+    .PostPage__title-text {
       font-size: 2em;
       line-height: 150%;
       font-weight: 300;
@@ -156,66 +158,66 @@ S.Post = styled.div`
     }
   }
 
-  .Post__author-block {
+  .PostPage__author-block {
     display: flex;
     align-items: center;
     margin-bottom: ${(p) => p.theme.size[32]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__author-block {
+    .PostPage__author-block {
       margin-bottom: ${(p) => p.theme.size[24]};
     }
   }
 
-  .Post__authorText-block {
+  .PostPage__authorText-block {
   }
 
-  .Post__authorPhoto-UserAvatar {
+  .PostPage__authorPhoto-UserAvatar {
     margin-right: ${(p) => p.theme.size[16]};
   }
 
-  .Post__authorName-text {
+  .PostPage__authorName-text {
     font-size: 1.1875em;
     margin-bottom: ${(p) => p.theme.size[12]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Post__authorName-text {
+    .PostPage__authorName-text {
       font-size: 1em;
     }
   }
 
-  .Post__authorDate-text {
+  .PostPage__authorDate-text {
     color: ${(p) => p.theme.color.lightMuted};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Post__authorDate-text {
+    .PostPage__authorDate-text {
       font-size: 0.875em;
     }
   }
 
-  .Post__tags-text {
+  .PostPage__tags-text {
     color: ${(p) => p.theme.color.lightMuted};
     font-style: italic;
     margin-bottom: ${(p) => p.theme.size[16]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Post__tags-text {
+    .PostPage__tags-text {
       font-size: 0.875em;
     }
   }
 
-  .Post__divider-graphic {
+  .PostPage__divider-graphic {
     width: 62%;
     height: 1px;
     background-color: ${(p) => p.theme.color.blue};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__divider-graphic {
+    .PostPage__divider-graphic {
       width: 100%;
     }
   }
 
-  .Post__photo-wrapper {
+  .PostPage__photo-wrapper {
     width: ${(p) => p.theme.size.free(512)};
     height: ${(p) => p.theme.size.free(512)};
     border-radius: 100%;
@@ -232,7 +234,7 @@ S.Post = styled.div`
     );
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__photo-wrapper {
+    .PostPage__photo-wrapper {
       width: ${(p) => p.theme.size.free(384)};
       height: ${(p) => p.theme.size.free(384)};
       top: ${(p) => p.theme.size[32]};
@@ -240,18 +242,18 @@ S.Post = styled.div`
     }
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
-    .Post__photo-wrapper {
+    .PostPage__photo-wrapper {
       right: -${(p) => p.theme.size[64]};
     }
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Post__photo-wrapper {
+    .PostPage__photo-wrapper {
       width: ${(p) => p.theme.size.free(336)};
       height: ${(p) => p.theme.size.free(336)};
     }
   }
 
-  .Post__photo-image {
+  .PostPage__photo-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -263,21 +265,21 @@ S.Post = styled.div`
     filter: brightness(80%);
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
-    .Post__photo-image {
+    .PostPage__photo-image {
       filter: brightness(60%);
     }
   }
 
-  .Post__content-block {
+  .PostPage__content-block {
     width: 62%;
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__content-block {
+    .PostPage__content-block {
       width: 100%;
     }
   }
 
-  .Post__contentParagraph-text {
+  .PostPage__contentParagraph-text {
     font-weight: 300;
     font-size: 1.3125em;
     line-height: 180%;
@@ -285,14 +287,14 @@ S.Post = styled.div`
     margin-bottom: ${(p) => p.theme.size[32]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Post__contentParagraph-text {
+    .PostPage__contentParagraph-text {
     }
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Post__contentParagraph-text {
+    .PostPage__contentParagraph-text {
       font-size: 1.1875em;
     }
   }
 `;
 
-export default Post;
+export default PostPage;

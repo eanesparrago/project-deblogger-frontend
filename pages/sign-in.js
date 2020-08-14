@@ -6,9 +6,128 @@ import DebloggerLogo from "components/DebloggerLogo";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import FilledButton from "components/FilledButton";
 
+const SignInPage = () => {
+  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
+
+  const handleSignUpFormOpenClick = () => {
+    setIsSignUpFormOpen(true);
+  };
+
+  const handleCloseSignUpFormClick = () => {
+    setIsSignUpFormOpen(false);
+  };
+
+  return (
+    <S.SignInPage>
+      <DebloggerLogo
+        className="SignInPage__DebloggerLogo"
+        size="large"
+      ></DebloggerLogo>
+
+      <Link href="/">
+        <a className="SignInPage__continue-button">
+          <UppercaseTextButton>Continue as Guest</UppercaseTextButton>
+        </a>
+      </Link>
+
+      <form className="SignInPage__form">
+        <S.FormItem className="SignInPage__emailFormItem">
+          <label className="FormItem__label-text" htmlFor="logInEmail">
+            Email
+          </label>
+
+          <input className="FormItem__input" id="logInEmail" type="email" />
+        </S.FormItem>
+
+        <S.FormItem className="SignInPage__passwordFormItem">
+          <label className="FormItem__label-text" htmlFor="logInPassword">
+            Password
+          </label>
+
+          <input
+            className="FormItem__input"
+            id="logInPassword"
+            type="password"
+          />
+        </S.FormItem>
+
+        <FilledButton className="FilledButton" type="submit">
+          Log In
+        </FilledButton>
+      </form>
+
+      <div className="SignInPage__divider"></div>
+
+      <UppercaseTextButton as="button" onClick={handleSignUpFormOpenClick}>
+        Create New Account
+      </UppercaseTextButton>
+
+      {isSignUpFormOpen && (
+        <S.SignUpForm className="SignInPage__SignUpForm">
+          <UppercaseTextButton
+            className="SignUpForm__cancel-button"
+            onClick={handleCloseSignUpFormClick}
+          >
+            Cancel
+          </UppercaseTextButton>
+
+          <h2 className="SignUpForm__heading-text">Sign Up</h2>
+
+          <form className="SignUpForm__form">
+            <S.FormItem className="SignUpForm__usernameFormItem">
+              <label className="FormItem__label-text" htmlFor="signUpUsername">
+                Username
+              </label>
+
+              <input
+                className="FormItem__input"
+                id="signUpUsername"
+                type="text"
+              />
+            </S.FormItem>
+
+            <S.FormItem className="SignUpForm__emailFormItem">
+              <label className="FormItem__label-text" htmlFor="signUpEmail">
+                Email
+              </label>
+
+              <input
+                className="FormItem__input"
+                id="signUpEmail"
+                type="email"
+              />
+            </S.FormItem>
+
+            <S.FormItem className="SignUpForm__passwordFormItem">
+              <label className="FormItem__label-text" htmlFor="signUpPassword">
+                Password
+              </label>
+
+              <input
+                className="FormItem__input"
+                id="signUpPassword"
+                type="password"
+              />
+            </S.FormItem>
+
+            <FilledButton type="submit">Sign Up</FilledButton>
+          </form>
+        </S.SignUpForm>
+      )}
+
+      {isSignUpFormOpen && (
+        <div
+          className="SignInPage__dimOverlay"
+          onClick={handleCloseSignUpFormClick}
+        ></div>
+      )}
+    </S.SignInPage>
+  );
+};
+
 const S = {};
 
-S.SignIn = styled.div`
+S.SignInPage = styled.div`
   padding-top: ${(p) => p.theme.size[96]};
   padding-bottom: ${(p) => p.theme.size[64]};
   display: flex;
@@ -21,67 +140,67 @@ S.SignIn = styled.div`
     padding-right: ${(p) => p.theme.size[16]};
   }
 
-  .SignIn__DebloggerLogo {
+  .SignInPage__DebloggerLogo {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__DebloggerLogo {
+    .SignInPage__DebloggerLogo {
       font-size: 2em;
     }
   }
 
-  .SignIn__continue-button {
+  .SignInPage__continue-button {
     margin-bottom: ${(p) => p.theme.size[64]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__continue-button {
+    .SignInPage__continue-button {
       margin-bottom: ${(p) => p.theme.size[48]};
     }
   }
 
-  .SignIn__form {
+  .SignInPage__form {
     width: ${(p) => p.theme.size.free(384)};
     margin-bottom: ${(p) => p.theme.size[48]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__form {
+    .SignInPage__form {
       width: 100%;
       margin-bottom: ${(p) => p.theme.size[32]};
     }
   }
 
-  .SignIn__emailFormItem {
+  .SignInPage__emailFormItem {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__emailFormItem {
+    .SignInPage__emailFormItem {
       margin-bottom: ${(p) => p.theme.size[24]};
     }
   }
 
-  .SignIn__passwordFormItem {
+  .SignInPage__passwordFormItem {
     margin-bottom: ${(p) => p.theme.size[24]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__passwordFormItem {
+    .SignInPage__passwordFormItem {
       margin-bottom: ${(p) => p.theme.size[16]};
     }
   }
 
-  .SignIn__divider {
+  .SignInPage__divider {
     height: 1px;
     width: ${(p) => p.theme.size.free(512)};
     background-color: ${(p) => p.theme.color.grey};
     margin-bottom: ${(p) => p.theme.size[32]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__divider {
+    .SignInPage__divider {
       width: 100%;
       margin-bottom: ${(p) => p.theme.size[24]};
     }
   }
 
-  .SignIn__SignUpForm {
+  .SignInPage__SignUpForm {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -89,7 +208,7 @@ S.SignIn = styled.div`
     z-index: 100;
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .SignIn__SignUpForm {
+    .SignInPage__SignUpForm {
       top: ${(p) => p.theme.size[16]};
       left: ${(p) => p.theme.size[16]};
       right: ${(p) => p.theme.size[16]};
@@ -97,7 +216,7 @@ S.SignIn = styled.div`
     }
   }
 
-  .SignIn__dimOverlay {
+  .SignInPage__dimOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -196,123 +315,4 @@ S.SignUpForm = styled.div`
   }
 `;
 
-const SignIn = () => {
-  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
-
-  const handleSignUpFormOpenClick = () => {
-    setIsSignUpFormOpen(true);
-  };
-
-  const handleCloseSignUpFormClick = () => {
-    setIsSignUpFormOpen(false);
-  };
-
-  return (
-    <S.SignIn>
-      <DebloggerLogo
-        className="SignIn__DebloggerLogo"
-        size="large"
-      ></DebloggerLogo>
-
-      <Link href="/">
-        <a className="SignIn__continue-button">
-          <UppercaseTextButton>Continue as Guest</UppercaseTextButton>
-        </a>
-      </Link>
-
-      <form className="SignIn__form">
-        <S.FormItem className="SignIn__emailFormItem">
-          <label className="FormItem__label-text" htmlFor="logInEmail">
-            Email
-          </label>
-
-          <input className="FormItem__input" id="logInEmail" type="email" />
-        </S.FormItem>
-
-        <S.FormItem className="SignIn__passwordFormItem">
-          <label className="FormItem__label-text" htmlFor="logInPassword">
-            Password
-          </label>
-
-          <input
-            className="FormItem__input"
-            id="logInPassword"
-            type="password"
-          />
-        </S.FormItem>
-
-        <FilledButton className="FilledButton" type="submit">
-          Log In
-        </FilledButton>
-      </form>
-
-      <div className="SignIn__divider"></div>
-
-      <UppercaseTextButton as="button" onClick={handleSignUpFormOpenClick}>
-        Create New Account
-      </UppercaseTextButton>
-
-      {isSignUpFormOpen && (
-        <S.SignUpForm className="SignIn__SignUpForm">
-          <UppercaseTextButton
-            className="SignUpForm__cancel-button"
-            onClick={handleCloseSignUpFormClick}
-          >
-            Cancel
-          </UppercaseTextButton>
-
-          <h2 className="SignUpForm__heading-text">Sign Up</h2>
-
-          <form className="SignUpForm__form">
-            <S.FormItem className="SignUpForm__usernameFormItem">
-              <label className="FormItem__label-text" htmlFor="signUpUsername">
-                Username
-              </label>
-
-              <input
-                className="FormItem__input"
-                id="signUpUsername"
-                type="text"
-              />
-            </S.FormItem>
-
-            <S.FormItem className="SignUpForm__emailFormItem">
-              <label className="FormItem__label-text" htmlFor="signUpEmail">
-                Email
-              </label>
-
-              <input
-                className="FormItem__input"
-                id="signUpEmail"
-                type="email"
-              />
-            </S.FormItem>
-
-            <S.FormItem className="SignUpForm__passwordFormItem">
-              <label className="FormItem__label-text" htmlFor="signUpPassword">
-                Password
-              </label>
-
-              <input
-                className="FormItem__input"
-                id="signUpPassword"
-                type="password"
-              />
-            </S.FormItem>
-
-            <FilledButton type="submit">Sign Up</FilledButton>
-          </form>
-        </S.SignUpForm>
-      )}
-
-      {isSignUpFormOpen && (
-        <div
-          className="SignIn__dimOverlay"
-          onClick={handleCloseSignUpFormClick}
-        ></div>
-      )}
-    </S.SignIn>
-  );
-};
-
-export default SignIn;
+export default SignInPage;

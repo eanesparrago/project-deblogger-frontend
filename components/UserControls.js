@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -56,40 +57,45 @@ S.UserControls = styled.div`
 
   .UserControls__authenticatedState-block {
     text-align: right;
-    display: none;
   }
 `;
 
 const UserControls = ({ ...rest }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+
   return (
     <S.UserControls as="section" className="Home__UserControls" {...rest}>
       <a href="/" className="UserControls__write-button">
         Write a Post
       </a>
 
-      <Link href="/sign-in" passHref={true}>
-        <a>
-          <NormalTextButton href="/">Sign In/Up</NormalTextButton>
-        </a>
-      </Link>
+      {isAuthenticated ? (
+        <div className="UserControls__authenticatedState-block">
+          <div className="UserControls__user-block">
+            <div className="UserControls__userInfo-block">
+              <div className="UserControls__userInfoName-text">
+                Paul McKittens
+              </div>
 
-      <div className="UserControls__authenticatedState-block">
-        <div className="UserControls__user-block">
-          <div className="UserControls__userInfo-block">
-            <div className="UserControls__userInfoName-text">
-              Paul McKittens
+              <div className="UserControls__userInfoUsername-text">
+                @paulmck
+              </div>
             </div>
 
-            <div className="UserControls__userInfoUsername-text">@paulmck</div>
+            <UserAvatar size="medium"></UserAvatar>
           </div>
 
-          <UserAvatar size="medium"></UserAvatar>
+          <NormalTextButton as="a" href="/">
+            Admin Dashboard
+          </NormalTextButton>
         </div>
-
-        <NormalTextButton as="a" href="/">
-          Admin Dashboard
-        </NormalTextButton>
-      </div>
+      ) : (
+        <Link href="/sign-in" passHref={true}>
+          <a>
+            <NormalTextButton href="/">Sign In/Up</NormalTextButton>
+          </a>
+        </Link>
+      )}
     </S.UserControls>
   );
 };

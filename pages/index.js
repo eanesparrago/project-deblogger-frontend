@@ -4,17 +4,44 @@ import styled from "styled-components";
 import PostCard from "components/PostCard";
 import CommonLayout from "components/CommonLayout";
 
+function HomePage() {
+  return (
+    <CommonLayout>
+      <Head>
+        <title>Create Next App</title>
+      </Head>
+
+      <S.HomePage>
+        <main className="HomePage__main">
+          <div className="HomePage__widget-block">
+            <S.SearchBox>
+              <input type="text" placeholder="Search posts" />
+            </S.SearchBox>
+          </div>
+
+          <section className="HomePage__PostCard-group">
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+            <PostCard></PostCard>
+          </section>
+        </main>
+      </S.HomePage>
+    </CommonLayout>
+  );
+}
+
 const S = {};
 
-S.Home = styled.div`
-  .Home__main {
+S.HomePage = styled.div`
+  .HomePage__main {
     margin: 0 auto;
     width: ${(p) => p.theme.size.free(1088)};
     padding-top: ${(p) => p.theme.size[64]};
     transform: translateX(${(p) => p.theme.size[32]});
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__main {
+    .HomePage__main {
       padding-top: ${(p) => p.theme.size.free(80)};
       padding-left: ${(p) => p.theme.size[16]};
       padding-right: ${(p) => p.theme.size[16]};
@@ -23,16 +50,16 @@ S.Home = styled.div`
     }
   }
 
-  .Home__widget-block {
+  .HomePage__widget-block {
     margin-bottom: ${(p) => p.theme.size[48]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Home__widget-block {
+    .HomePage__widget-block {
       margin-bottom: ${(p) => p.theme.size[32]};
     }
   }
 
-  .Home__PostCard-group {
+  .HomePage__PostCard-group {
     display: flex;
     flex-flow: row wrap;
 
@@ -42,7 +69,7 @@ S.Home = styled.div`
     }
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    .Home__PostCard-group {
+    .HomePage__PostCard-group {
       > * {
         margin-right: unset;
         margin-bottom: ${(p) => p.theme.size[32]};
@@ -70,29 +97,4 @@ S.SearchBox = styled.div`
   }
 `;
 
-export default function Home() {
-  return (
-    <CommonLayout>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
-
-      <S.Home>
-        <main className="Home__main">
-          <div className="Home__widget-block">
-            <S.SearchBox>
-              <input type="text" placeholder="Search posts" />
-            </S.SearchBox>
-          </div>
-
-          <section className="Home__PostCard-group">
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-          </section>
-        </main>
-      </S.Home>
-    </CommonLayout>
-  );
-}
+export default HomePage;
