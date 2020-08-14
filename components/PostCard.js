@@ -278,7 +278,7 @@ const PostCard = () => {
               React, Next.js, UI Design
             </span>
 
-            <Link href="/post/test">
+            <Link href="/post/[slug]" as="/post/test">
               <a className="PostCard__read-button">READ</a>
             </Link>
           </footer>
