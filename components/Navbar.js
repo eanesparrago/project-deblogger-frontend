@@ -17,6 +17,12 @@ S.Navbar = styled.nav`
     line-height: 100%;
     color: ${(p) => p.theme.color.light};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+    & > a {
+      width: ${(p) => p.theme.size.free(256)};
+      padding-left: ${(p) => p.theme.size[96]};
+    }
+  }
 
   & > a:not(:last-child) {
     margin-bottom: ${(p) => p.theme.size[12]};

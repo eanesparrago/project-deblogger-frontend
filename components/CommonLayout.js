@@ -25,6 +25,11 @@ S.CommonLayout = styled.div`
     margin-bottom: ${(p) => p.theme.size[48]};
     margin-left: ${(p) => p.theme.size[96]};
   }
+  @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
+    .Home__DebloggerLogo {
+      margin-left: ${(p) => p.theme.size[64]};
+    }
+  }
 
   .Home__UserControls {
     position: fixed;
