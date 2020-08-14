@@ -6,47 +6,91 @@ import DebloggerLogo from "components/DebloggerLogo";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import Navbar from "components/Navbar";
 
+const CommonLayout = (props) => {
+  const { children, variant } = props;
+
+  const navbar = variant === "admin" ? null : <Navbar></Navbar>;
+
+  return (
+    <S.CommonLayout>
+      <div className="CommonLayout__left-block">
+        <Link href="/">
+          <a className="CommonLayout__DebloggerLogo">
+            <DebloggerLogo color={variant === "admin" ? "white" : null}>
+              Deblogger
+            </DebloggerLogo>
+          </a>
+        </Link>
+
+        {navbar}
+      </div>
+
+      <S.MobileHeader as="header" className="CommonLayout__MobileHeader">
+        <DebloggerLogo variant="initials"></DebloggerLogo>
+
+        <button className="MobileHeader__pageLabel-button">Homepage</button>
+
+        <Link href="/sign-in" passHref={true}>
+          <a>
+            <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
+              Sign In
+            </UppercaseTextButton>
+          </a>
+        </Link>
+      </S.MobileHeader>
+
+      {children}
+
+      <UserControls
+        as="section"
+        className="CommonLayout__UserControls"
+      ></UserControls>
+    </S.CommonLayout>
+  );
+};
+
 const S = {};
 
 S.CommonLayout = styled.div`
-  .Home__left-block {
+  .CommonLayout__left-block {
     padding-top: ${(p) => p.theme.size[64]};
     position: fixed;
     top: 0;
     left: 0;
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__left-block {
+    .CommonLayout__left-block {
       display: none;
     }
   }
 
-  .Home__DebloggerLogo {
+  .CommonLayout__DebloggerLogo {
+    display: inline-block;
     margin-bottom: ${(p) => p.theme.size[48]};
     margin-left: ${(p) => p.theme.size[96]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
-    .Home__DebloggerLogo {
+    .CommonLayout__DebloggerLogo {
       margin-left: ${(p) => p.theme.size[48]};
     }
   }
 
-  .Home__UserControls {
+  .CommonLayout__UserControls {
     position: fixed;
     top: ${(p) => p.theme.size[64]};
     right: ${(p) => p.theme.size[48]};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__UserControls {
+    .CommonLayout__UserControls {
       display: none;
     }
   }
 
-  .Home__MobileHeader {
+  .CommonLayout__MobileHeader {
     display: none;
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .Home__MobileHeader {
+    .CommonLayout__MobileHeader {
       display: flex;
     }
   }
@@ -77,37 +121,5 @@ S.MobileHeader = styled.div`
     height: ${(p) => p.theme.size[48]};
   }
 `;
-
-const CommonLayout = (props) => {
-  const { children } = props;
-
-  return (
-    <S.CommonLayout>
-      <div className="Home__left-block">
-        <DebloggerLogo className="Home__DebloggerLogo">Deblogger</DebloggerLogo>
-
-        <Navbar></Navbar>
-      </div>
-
-      <S.MobileHeader as="header" className="Home__MobileHeader">
-        <DebloggerLogo variant="initials"></DebloggerLogo>
-
-        <button className="MobileHeader__pageLabel-button">Homepage</button>
-
-        <Link href="/sign-in" passHref={true}>
-          <a>
-            <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
-              Sign In
-            </UppercaseTextButton>
-          </a>
-        </Link>
-      </S.MobileHeader>
-
-      {children}
-
-      <UserControls as="section" className="Home__UserControls"></UserControls>
-    </S.CommonLayout>
-  );
-};
 
 export default CommonLayout;

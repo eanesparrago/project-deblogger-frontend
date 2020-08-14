@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+const InnerLayout = (props) => {
+  const { children } = props;
+
+  return <S.InnerLayout {...props}>{children}</S.InnerLayout>;
+};
+
 const S = {};
 
 S.InnerLayout = styled.div`
@@ -7,7 +13,6 @@ S.InnerLayout = styled.div`
   width: ${(p) => p.theme.size.free(1056)};
   padding-top: ${(p) => p.theme.size[64]};
   padding-bottom: ${(p) => p.theme.size[64]};
-  /* overflow: hidden; */
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
     padding-top: ${(p) => p.theme.size.free(80)};
     width: 62%;
@@ -26,11 +31,5 @@ S.InnerLayout = styled.div`
     padding-right: ${(p) => p.theme.size[16]};
   }
 `;
-
-const InnerLayout = (props) => {
-  const { children } = props;
-
-  return <S.InnerLayout {...props}>{children}</S.InnerLayout>;
-};
 
 export default InnerLayout;

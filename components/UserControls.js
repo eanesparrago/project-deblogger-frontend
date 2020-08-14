@@ -85,9 +85,11 @@ const UserControls = ({ ...rest }) => {
             <UserAvatar size="medium"></UserAvatar>
           </div>
 
-          <NormalTextButton as="a" href="/">
-            Admin Dashboard
-          </NormalTextButton>
+          <Link href="/admin">
+            <a>
+              <NormalTextButton>Admin Dashboard</NormalTextButton>
+            </a>
+          </Link>
         </div>
       ) : (
         <Link href="/sign-in" passHref={true}>

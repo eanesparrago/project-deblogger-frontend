@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { css } from "styled-components";
 
 const S = {};
@@ -16,8 +15,20 @@ S.DebloggerLogo = styled.div`
     css`
       font-size: 3em;
     `}
+
+  ${(p) =>
+    p.color === "white" &&
+    css`
+      color: ${(p) => p.theme.color.light};
+    `}
 `;
 
+/*
+Options
+size - default, large
+color - default, white
+variant - default, initials
+*/
 const DebloggerLogo = (props) => {
   const { variant } = props;
 
