@@ -7,15 +7,19 @@ import FormItem from "components/FormItem";
 import QuillEditor from "components/QuillEditor";
 import FilledButton from "components/buttons/FilledButton";
 
-const WritePage = () => {
+const EditPage = () => {
   return (
     <CommonLayout variant="dashboard">
-      <S.WritePage as="main">
+      <S.EditPage as="main">
         <DashboardLayoutBase
-          headingText="Write a Post"
+          headingText="Edit Post"
           withBackButton={true}
           backButtonVariant="cancel"
         >
+          <div className="EditPage__postTitle-text">
+            The quick brown fox jumps over the lazy dog 🦊
+          </div>
+
           <form className="WritePage__form-block">
             <div className="WritePage__info-block">
               <FormItem>
@@ -56,14 +60,25 @@ const WritePage = () => {
             </FilledButton>
           </form>
         </DashboardLayoutBase>
-      </S.WritePage>
+      </S.EditPage>
     </CommonLayout>
   );
 };
 
 const S = {};
 
-S.WritePage = styled.div`
+S.EditPage = styled.div`
+  .EditPage__postTitle-text {
+    font-size: 1.5em;
+    font-style: italic;
+    margin-bottom: ${(p) => p.theme.size[48]};
+    line-height: 150%;
+
+    @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+      margin-bottom: ${(p) => p.theme.size[32]};
+    }
+  }
+
   .WritePage__form-block > * {
     margin-bottom: ${(p) => p.theme.size[32]};
   }
@@ -114,4 +129,4 @@ S.WritePage = styled.div`
   }
 `;
 
-export default WritePage;
+export default EditPage;

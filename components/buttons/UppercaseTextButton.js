@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 /* 
 Props
-variant - "normal" (default), "muted"
+variant - "normal" (default), "muted", "cancel"
 */
 const UppercaseTextButton = (props) => {
   const { children } = props;
@@ -29,6 +29,12 @@ S.UppercaseTextButton = styled.div`
     p.variant === "muted" &&
     css`
       color: ${(p) => p.theme.color.grey};
+    `}
+
+  ${(p) =>
+    p.variant === "cancel" &&
+    css`
+      color: ${(p) => p.theme.color.red};
     `}
 `;
 

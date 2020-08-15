@@ -8,13 +8,18 @@ import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 Props
 headingText - String
 withBackButton - Boolean
+backButtonVariant - default, "cancel"
  */
 const DashboardLayoutBase = (props) => {
   const {
     headingText = "Admin Dashboard",
     withBackButton = false,
+    backButtonVariant = "default",
     children,
   } = props;
+
+  const backButtonText =
+    backButtonVariant === "cancel" ? "Cancel" : "Back to Dashboard";
 
   return (
     <S.DashboardLayoutBase {...props}>
@@ -24,9 +29,9 @@ const DashboardLayoutBase = (props) => {
             <a>
               <UppercaseTextButton
                 className="DashboardLayoutBase__back-UppercaseTextButton"
-                variant="muted"
+                variant={backButtonVariant === "cancel" ? "cancel" : "muted"}
               >
-                Back to Dashboard
+                {backButtonText}
               </UppercaseTextButton>
             </a>
           </Link>
