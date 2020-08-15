@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 import CommonLayout from "components/CommonLayout";
-import DashboardLayout from "components/DashboardLayout";
+import DashboardLayoutHome from "components/DashboardLayoutHome";
 
 const UserPage = () => {
   return (
     <CommonLayout variant="dashboard">
       <S.UserPage as="main">
-        <DashboardLayout
+        <DashboardLayoutHome
           variant="member"
           headingText="Your Dashboard"
           withBackButton={false}
-        ></DashboardLayout>
+        ></DashboardLayoutHome>
       </S.UserPage>
     </CommonLayout>
   );

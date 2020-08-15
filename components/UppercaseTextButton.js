@@ -1,5 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+/* 
+Props
+variant - "normal" (default), "muted"
+*/
+const UppercaseTextButton = (props) => {
+  const { children } = props;
+
+  return <S.UppercaseTextButton {...props}>{children}</S.UppercaseTextButton>;
+};
 
 const S = {};
 
@@ -15,10 +24,12 @@ S.UppercaseTextButton = styled.div`
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
     font-size: 1em;
   }
-`;
 
-const UppercaseTextButton = ({ children, ...rest }) => {
-  return <S.UppercaseTextButton {...rest}>{children}</S.UppercaseTextButton>;
-};
+  ${(p) =>
+    p.variant === "muted" &&
+    css`
+      color: ${(p) => p.theme.color.grey};
+    `}
+`;
 
 export default UppercaseTextButton;

@@ -85,7 +85,7 @@ const UserControls = ({ ...rest }) => {
             <UserAvatar size="medium"></UserAvatar>
           </div>
 
-          <Link href="/user">
+          <Link href="/admin">
             <a>
               <NormalTextButton>Admin Dashboard</NormalTextButton>
             </a>
