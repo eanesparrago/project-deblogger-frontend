@@ -6,7 +6,7 @@ import DashboardLayout from "components/DashboardLayout";
 
 const AdminPage = () => {
   return (
-    <CommonLayout variant="admin">
+    <CommonLayout variant="dashboard">
       <S.AdminPage as="main">
         <DashboardLayout
           variant="admin"

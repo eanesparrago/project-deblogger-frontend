@@ -6,17 +6,21 @@ import DebloggerLogo from "components/DebloggerLogo";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import Navbar from "components/Navbar";
 
+/*
+Props
+variant - "normal" (default), "dashboard"
+*/
 const CommonLayout = (props) => {
-  const { children, variant } = props;
+  const { children, variant = "normal" } = props;
 
-  const navbar = variant === "admin" ? null : <Navbar></Navbar>;
+  const navbar = variant === "dashboard" ? null : <Navbar></Navbar>;
 
   return (
     <S.CommonLayout>
       <div className="CommonLayout__left-block">
         <Link href="/">
           <a className="CommonLayout__DebloggerLogo">
-            <DebloggerLogo color={variant === "admin" ? "white" : null}>
+            <DebloggerLogo color={variant === "dashboard" ? "white" : null}>
               Deblogger
             </DebloggerLogo>
           </a>

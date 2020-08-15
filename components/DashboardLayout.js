@@ -21,33 +21,29 @@ const DashboardLayout = (props) => {
 
   return (
     <S.DashboardLayout {...props}>
-      <CommonLayout variant="admin">
-        <S.DashboardLayout>
-          <InnerLayoutWrapper>
-            <h1 className="DashboardLayout__heading-text">{headingText}</h1>
+      <S.DashboardLayout>
+        <InnerLayoutWrapper>
+          <h1 className="DashboardLayout__heading-text">{headingText}</h1>
 
-            <div className="DashboardLayout__divider-graphic"></div>
+          <div className="DashboardLayout__divider-graphic"></div>
 
-            <UserProfile className="DashboardLayout__UserProfile"></UserProfile>
+          <UserProfile className="DashboardLayout__UserProfile"></UserProfile>
 
-            <div className="DashboardLayout__control-group">
-              <button className="DarkButton">Edit Profile</button>
+          <div className="DashboardLayout__control-group">
+            <button className="DarkButton">Edit Profile</button>
 
-              {variant === "admin" && (
-                <button className="DarkButton">
-                  Manage All Deblogger Posts
-                </button>
-              )}
-            </div>
+            {variant === "admin" && (
+              <button className="DarkButton">Manage All Deblogger Posts</button>
+            )}
+          </div>
 
-            <PostsBlock
-              as="section"
-              headingText="My Posts"
-              variant="withControls"
-            ></PostsBlock>
-          </InnerLayoutWrapper>
-        </S.DashboardLayout>
-      </CommonLayout>
+          <PostsBlock
+            as="section"
+            headingText="My Posts"
+            variant="withControls"
+          ></PostsBlock>
+        </InnerLayoutWrapper>
+      </S.DashboardLayout>
     </S.DashboardLayout>
   );
 };
