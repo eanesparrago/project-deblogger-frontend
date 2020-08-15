@@ -65,9 +65,9 @@ const UserControls = ({ ...rest }) => {
 
   return (
     <S.UserControls as="section" className="Home__UserControls" {...rest}>
-      <a href="/" className="UserControls__write-button">
-        Write a Post
-      </a>
+      <Link href="/write">
+        <a className="UserControls__write-button">Write a Post</a>
+      </Link>
 
       {isAuthenticated ? (
         <div className="UserControls__authenticatedState-block">
