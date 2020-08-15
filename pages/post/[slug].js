@@ -25,11 +25,15 @@ const PostPage = () => {
             </h1>
 
             <div className="PostPage__author-block">
-              <UserAvatar
-                className="PostPage__authorPhoto-UserAvatar"
-                size="medium"
-                responsive
-              ></UserAvatar>
+              <Link href="/profile/[username]" as="/profile/test">
+                <a>
+                  <UserAvatar
+                    className="PostPage__authorPhoto-UserAvatar"
+                    size="medium"
+                    responsive
+                  ></UserAvatar>
+                </a>
+              </Link>
 
               <div className="PostPage__authorText-block">
                 <div className="PostPage__authorName-text">
