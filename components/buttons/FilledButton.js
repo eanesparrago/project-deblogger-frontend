@@ -7,9 +7,11 @@ S.FilledButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  /* width: 100%; */
   height: ${(p) => p.theme.size[48]};
+  padding-left: ${(p) => p.theme.size[24]};
+  padding-right: ${(p) => p.theme.size[24]};
   background-color: ${(p) => p.theme.color.primary.main};
-  width: 100%;
   color: ${(p) => p.theme.color.dark};
   font-weight: 700;
   border-radius: 8px;

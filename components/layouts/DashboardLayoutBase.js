@@ -6,13 +6,11 @@ import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 
 /*
 Props
-variant - "admin" (default), "member"
 headingText - String
 withBackButton - Boolean
  */
 const DashboardLayoutBase = (props) => {
   const {
-    variant = "admin",
     headingText = "Admin Dashboard",
     withBackButton = false,
     children,

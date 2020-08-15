@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 
 import PostCard from "components/PostCard";
+import SearchBox from "components/SearchBox";
 import CommonLayout from "components/layouts/CommonLayout";
 
 function HomePage() {
@@ -14,9 +15,7 @@ function HomePage() {
       <S.HomePage>
         <main className="HomePage__main">
           <div className="HomePage__widget-block">
-            <S.SearchBox>
-              <input type="text" placeholder="Search posts" />
-            </S.SearchBox>
+            <SearchBox></SearchBox>
           </div>
 
           <section className="HomePage__PostCard-group">
@@ -78,23 +77,5 @@ S.HomePage = styled.div`
   }
 `;
 
-S.SearchBox = styled.div`
-  & > input {
-    border: 1px solid ${(p) => p.theme.color.grey};
-    height: ${(p) => p.theme.size[48]};
-    width: ${(p) => p.theme.size.free(256)};
-    border-radius: 8px;
-    padding-left: ${(p) => p.theme.size[24]};
-  }
-  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
-    & > input {
-      width: 100%;
-    }
-  }
-
-  & > input:focus {
-    border: 1px solid ${(p) => p.theme.color.lightMuted};
-  }
-`;
-
+ 
 export default HomePage;

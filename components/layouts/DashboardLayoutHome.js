@@ -21,7 +21,11 @@ const DashboardLayoutMain = (props) => {
         <UserProfile className="DashboardLayout__UserProfile"></UserProfile>
 
         <div className="DashboardLayout__control-group">
-          <button className="DarkButton">Edit Profile</button>
+          <Link href="/user/update">
+            <a>
+              <button className="DarkButton">Edit Profile</button>
+            </a>
+          </Link>
 
           {variant === "admin" && (
             <Link href="/admin/manage-posts">
