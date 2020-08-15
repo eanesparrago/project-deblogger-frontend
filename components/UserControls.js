@@ -92,7 +92,7 @@ const UserControls = ({ ...rest }) => {
           </Link>
         </div>
       ) : (
-        <Link href="/sign-in" passHref={true}>
+        <Link href="/sign-in">
           <a>
             <NormalTextButton href="/">Sign In/Up</NormalTextButton>
           </a>

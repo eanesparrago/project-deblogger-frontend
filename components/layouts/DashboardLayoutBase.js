@@ -25,7 +25,7 @@ const DashboardLayoutBase = (props) => {
     <S.DashboardLayoutBase {...props}>
       <InnerLayoutWrapper>
         {withBackButton === true && (
-          <Link href="/">
+          <Link href="/admin">
             <a>
               <UppercaseTextButton
                 className="DashboardLayoutBase__back-UppercaseTextButton"

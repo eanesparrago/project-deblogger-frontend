@@ -8,7 +8,12 @@ export default createGlobalStyle`
 
   html {
     font-size: 16px;
+
+    @media(min-width: ${(p) => p.theme.breakpoint.desktopXXL}) {
+      font-size: 19px;
+    }
   }
+ 
   
   body {
     font-size: 16px;
@@ -17,6 +22,10 @@ export default createGlobalStyle`
     color: ${(p) => p.theme.color.light};
     background-color: ${(p) => p.theme.color.bg};
     line-height: 1;
+
+    @media(min-width: ${(p) => p.theme.breakpoint.desktopXXL}) {
+      font-size: 19px;
+    }
   }
 
   a:focus, button:focus {

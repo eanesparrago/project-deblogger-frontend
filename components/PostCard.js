@@ -3,10 +3,81 @@ import Link from "next/link";
 
 import UserAvatar from "./UserAvatar";
 
+const PostCard = () => {
+  return (
+    <S.PostCard as="article">
+      <div className="PostCard__photo-wrapper">
+        <img
+          className="PostCard__photo-image"
+          src="/static/images/cat_01.jpg"
+          alt=""
+        />
+      </div>
+
+      <div className="PostCard__wrapper">
+        <header className="PostCard__header-block">
+          <Link href="/post/[slug]" as="/post/test">
+            <a>
+              <h1 className="PostCard__heading-text">
+                The quick brown fox jumps over the lazy dog 🦊
+              </h1>
+            </a>
+          </Link>
+
+          <img
+            className="PostCard__headerBackgroundImage"
+            src="/static/images/cat_01.jpg"
+          ></img>
+
+          <div className="PostCard__headerOverlay"></div>
+
+          <div className="PostCard__category-wrapper">
+            <span className="PostCard__category-text">Development</span>
+          </div>
+        </header>
+
+        <div className="PostCard__body-wrapper">
+          <div className="PostCard__author-block">
+            <Link href="/profile/[username]" as="/profile/test">
+              <a className="PostCard__UserAvatar">
+                <UserAvatar></UserAvatar>
+              </a>
+            </Link>
+
+            <div className="PostCard__authorDetail-block">
+              <div className="PostCard__authorName-text">Kat Meows</div>
+
+              <div className="PostCard__date-text">August 10, 2020 Monday</div>
+            </div>
+          </div>
+
+          <p className="PostCard__excerpt-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+            reprehenderit vel est neque soluta assumenda nihil, expedita
+            consequatur explicabo quas hic. Cumque odit, minima ea tempore sint
+            doloribus! Accusantium, commodi.
+          </p>
+
+          <footer className="PostCard__footer-block">
+            <span className="PostCard__tags-text">
+              React, Next.js, UI Design
+            </span>
+
+            <Link href="/post/[slug]" as="/post/test">
+              <a className="PostCard__read-button">READ</a>
+            </Link>
+          </footer>
+        </div>
+      </div>
+    </S.PostCard>
+  );
+};
+
 const S = {};
 
 S.PostCard = styled.div`
-  width: ${(p) => p.theme.size.free(512)};
+  width: 100%;
+  /* width: ${(p) => p.theme.size.free(512)}; */
   padding-top: ${(p) => p.theme.size.free(88)};
   position: relative;
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
@@ -90,6 +161,7 @@ S.PostCard = styled.div`
     color: ${(p) => p.theme.color.white};
     position: relative;
     z-index: 1;
+
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
     .PostCard__heading-text {
@@ -225,71 +297,5 @@ S.PostCard = styled.div`
     }
   }
 `;
-
-const PostCard = () => {
-  return (
-    <S.PostCard as="article">
-      <div className="PostCard__photo-wrapper">
-        <img
-          className="PostCard__photo-image"
-          src="/static/images/cat_01.jpg"
-          alt=""
-        />
-      </div>
-
-      <div className="PostCard__wrapper">
-        <header className="PostCard__header-block">
-          <h1 className="PostCard__heading-text">
-            The quick brown fox jumps over the lazy dog 🦊
-          </h1>
-
-          <img
-            className="PostCard__headerBackgroundImage"
-            src="/static/images/cat_01.jpg"
-          ></img>
-
-          <div className="PostCard__headerOverlay"></div>
-
-          <div className="PostCard__category-wrapper">
-            <span className="PostCard__category-text">Development</span>
-          </div>
-        </header>
-
-        <div className="PostCard__body-wrapper">
-          <div className="PostCard__author-block">
-            <Link href="/profile/[username]" as="/profile/test">
-              <a className="PostCard__UserAvatar">
-                <UserAvatar></UserAvatar>
-              </a>
-            </Link>
-
-            <div className="PostCard__authorDetail-block">
-              <div className="PostCard__authorName-text">Kat Meows</div>
-
-              <div className="PostCard__date-text">August 10, 2020 Monday</div>
-            </div>
-          </div>
-
-          <p className="PostCard__excerpt-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-            reprehenderit vel est neque soluta assumenda nihil, expedita
-            consequatur explicabo quas hic. Cumque odit, minima ea tempore sint
-            doloribus! Accusantium, commodi.
-          </p>
-
-          <footer className="PostCard__footer-block">
-            <span className="PostCard__tags-text">
-              React, Next.js, UI Design
-            </span>
-
-            <Link href="/post/[slug]" as="/post/test">
-              <a className="PostCard__read-button">READ</a>
-            </Link>
-          </footer>
-        </div>
-      </div>
-    </S.PostCard>
-  );
-};
 
 export default PostCard;

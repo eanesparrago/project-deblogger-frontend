@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Link from "next/link";
 
 import NormalTextButton from "components/buttons/NormalTextButton";
 
@@ -63,11 +64,13 @@ const PostItem = (props) => {
 
       {withControls && (
         <div className="PostItem__controls-group">
-          <NormalTextButton as="button" color="red">
-            Delete
-          </NormalTextButton>
+          <NormalTextButton color="red">Delete</NormalTextButton>
 
-          <NormalTextButton as="button">Edit</NormalTextButton>
+          <Link href="/edit">
+            <a>
+              <NormalTextButton>Edit</NormalTextButton>
+            </a>
+          </Link>
         </div>
       )}
     </S.PostItem>

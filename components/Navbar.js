@@ -14,7 +14,7 @@ S.Navbar = styled.nav`
     transform: translateX(-${(p) => p.theme.size[32]});
     align-items: center;
     font-size: 1.1875em;
-    line-height: 100%;
+    font-weight: 300;
     color: ${(p) => p.theme.color.light};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.desktopXL}) {
@@ -101,7 +101,7 @@ S.Navbar = styled.nav`
 const Navbar = (props) => {
   return (
     <S.Navbar {...props}>
-      <a href="/" className="Navbar__homepage Navbar__homepage--active">
+      {/* <a href="/" className="Navbar__homepage Navbar__homepage--active">
         Homepage
       </a>
       <a href="/" className="Navbar__development Navbar__development--active">
@@ -124,7 +124,16 @@ const Navbar = (props) => {
       </a>
       <a href="/" className="Navbar__meta Navbar__meta--active">
         Meta
-      </a>
+      </a> */}
+
+      <a className="Navbar__homepage">Homepage</a>
+      <a className="Navbar__development">Development</a>
+      <a className="Navbar__design">Design</a>
+      <a className="Navbar__lesson">Lesson</a>
+      <a className="Navbar__showcase">Showcase</a>
+      <a className="Navbar__devLife">Dev Life</a>
+      <a className="Navbar__random">Random</a>
+      <a className="Navbar__meta">Meta</a>
     </S.Navbar>
   );
 };

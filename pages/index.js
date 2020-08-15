@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import PostCard from "components/PostCard";
 import SearchBox from "components/SearchBox";
+import InnerLayoutWrapper from "components/InnerLayoutWrapper";
 import CommonLayout from "components/layouts/CommonLayout";
 
 function HomePage() {
@@ -12,19 +13,17 @@ function HomePage() {
         <title>Create Next App</title>
       </Head>
 
-      <S.HomePage>
-        <main className="HomePage__main">
-          <div className="HomePage__widget-block">
-            <SearchBox></SearchBox>
-          </div>
+      <S.HomePage as="main">
+        <div className="HomePage__widget-block">
+          <SearchBox></SearchBox>
+        </div>
 
-          <section className="HomePage__PostCard-group">
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-            <PostCard></PostCard>
-          </section>
-        </main>
+        <section className="HomePage__PostCard-group">
+          <PostCard></PostCard>
+          <PostCard></PostCard>
+          <PostCard></PostCard>
+          <PostCard></PostCard>
+        </section>
       </S.HomePage>
     </CommonLayout>
   );
@@ -33,20 +32,20 @@ function HomePage() {
 const S = {};
 
 S.HomePage = styled.div`
-  .HomePage__main {
-    margin: 0 auto;
-    width: ${(p) => p.theme.size.free(1088)};
-    padding-top: ${(p) => p.theme.size[64]};
-    transform: translateX(${(p) => p.theme.size[32]});
-  }
+  margin: 0 auto;
+  width: ${(p) => p.theme.size.free(1056)};
+  padding-top: ${(p) => p.theme.size[64]};
+  transform: translateX(${(p) => p.theme.size[32]});
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
-    .HomePage__main {
-      padding-top: ${(p) => p.theme.size.free(80)};
-      padding-left: ${(p) => p.theme.size[16]};
-      padding-right: ${(p) => p.theme.size[16]};
-      transform: none;
-      width: unset;
-    }
+    padding-top: ${(p) => p.theme.size.free(80)};
+    padding-left: ${(p) => p.theme.size[96]};
+    padding-right: ${(p) => p.theme.size[96]};
+    transform: none;
+    width: unset;
+  }
+  @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
+    padding-left: ${(p) => p.theme.size[16]};
+    padding-right: ${(p) => p.theme.size[16]};
   }
 
   .HomePage__widget-block {
@@ -63,8 +62,14 @@ S.HomePage = styled.div`
     flex-flow: row wrap;
 
     > * {
+      width: calc(50% - ${(p) => p.theme.size[32]});
       margin-right: ${(p) => p.theme.size[32]};
       margin-bottom: ${(p) => p.theme.size[48]};
+
+      @media (max-width: ${(p) => p.theme.breakpoint.tabletLandscape}) {
+        margin-right: 0;
+        width: 100%;
+      }
     }
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
@@ -77,5 +82,4 @@ S.HomePage = styled.div`
   }
 `;
 
- 
 export default HomePage;
