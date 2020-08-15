@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import InnerLayoutWrapper from "components/InnerLayoutWrapper";
-import UppercaseTextButton from "components/UppercaseTextButton";
+import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 
 /*
 Props

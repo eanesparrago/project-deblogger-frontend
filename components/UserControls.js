@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-import NormalTextButton from "./NormalTextButton";
+import NormalTextButton from "./buttons/NormalTextButton";
 import UserAvatar from "./UserAvatar";
 
 const S = {};

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import UserProfile from "components/compounds/UserProfile";
 import PostsBlock from "components/compounds/PostsBlock";
-import DashboardLayoutBase from "components/DashboardLayoutBase";
+import DashboardLayoutBase from "components/layouts/DashboardLayoutBase";
 
 /*
 Props

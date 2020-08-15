@@ -2,7 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 
 import PostCard from "components/PostCard";
-import CommonLayout from "components/CommonLayout";
+import CommonLayout from "components/layouts/CommonLayout";
 
 function HomePage() {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import CommonLayout from "components/CommonLayout";
-import DashboardLayoutBase from "components/DashboardLayoutBase";
+import CommonLayout from "components/layouts/CommonLayout";
+import DashboardLayoutBase from "components/layouts/DashboardLayoutBase";
 
 const ManagePosts = () => {
   return (

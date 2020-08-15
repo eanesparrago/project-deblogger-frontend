@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-import CommonLayout from "components/CommonLayout";
+import CommonLayout from "components/layouts/CommonLayout";
 import InnerLayoutWrapper from "components/InnerLayoutWrapper";
-import UppercaseTextButton from "components/UppercaseTextButton";
+import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import UserProfile from "components/compounds/UserProfile";
 import PostsBlock from "components/compounds/PostsBlock";
 

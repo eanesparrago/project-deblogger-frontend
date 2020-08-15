@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import DebloggerLogo from "components/DebloggerLogo";
-import UppercaseTextButton from "components/UppercaseTextButton";
-import FilledButton from "components/FilledButton";
+import UppercaseTextButton from "components/buttons/UppercaseTextButton";
+import FilledButton from "components/buttons/FilledButton";
 
 const SignInPage = () => {
   const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);

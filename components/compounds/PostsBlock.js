@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import NormalTextButton from "components/NormalTextButton";
+import NormalTextButton from "components/buttons/NormalTextButton";
 
 const S = {};
 

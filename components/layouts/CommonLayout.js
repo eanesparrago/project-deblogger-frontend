@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import UserControls from "components/UserControls";
 import DebloggerLogo from "components/DebloggerLogo";
-import UppercaseTextButton from "components/UppercaseTextButton";
+import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import Navbar from "components/Navbar";
 
 /*

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import CommonLayout from "components/CommonLayout";
-import DashboardLayoutHome from "components/DashboardLayoutHome";
+import CommonLayout from "components/layouts/CommonLayout";
+import DashboardLayoutHome from "components/layouts/DashboardLayoutHome";
 
 const UserPage = () => {
   return (
