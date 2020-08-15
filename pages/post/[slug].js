@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import CommonLayout from "components/CommonLayout";
-import InnerLayout from "components/InnerLayout";
+import InnerLayoutWrapper from "components/InnerLayoutWrapper";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import UserAvatar from "components/UserAvatar";
 
@@ -10,7 +10,7 @@ const PostPage = () => {
   return (
     <CommonLayout>
       <S.PostPage as="article">
-        <InnerLayout>
+        <InnerLayoutWrapper>
           <div className="PostPage__header-block">
             <Link href="/">
               <a className="PostPage__back-button">
@@ -76,7 +76,7 @@ const PostPage = () => {
               the toilet.
             </p>
           </div>
-        </InnerLayout>
+        </InnerLayoutWrapper>
       </S.PostPage>
     </CommonLayout>
   );

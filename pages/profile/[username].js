@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import CommonLayout from "components/CommonLayout";
-import InnerLayout from "components/InnerLayout";
+import InnerLayoutWrapper from "components/InnerLayoutWrapper";
 import UppercaseTextButton from "components/UppercaseTextButton";
 import UserProfile from "components/compounds/UserProfile";
 import PostsBlock from "components/compounds/PostsBlock";
@@ -11,7 +11,7 @@ const ProfilePage = () => {
   return (
     <CommonLayout>
       <S.ProfilePage as="main">
-        <InnerLayout>
+        <InnerLayoutWrapper>
           <Link href="/">
             <a>
               <UppercaseTextButton className="ProfilePage__back-UppercaseTextButton">
@@ -31,7 +31,7 @@ const ProfilePage = () => {
             as="section"
             className="ProfilePage__PostsBlock"
           ></PostsBlock>
-        </InnerLayout>
+        </InnerLayoutWrapper>
       </S.ProfilePage>
     </CommonLayout>
   );
