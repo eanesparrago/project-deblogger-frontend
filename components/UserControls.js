@@ -5,6 +5,48 @@ import Link from "next/link";
 import NormalTextButton from "./buttons/NormalTextButton";
 import UserAvatar from "./UserAvatar";
 
+const UserControls = ({ ...rest }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+
+  return (
+    <S.UserControls as="section" className="Home__UserControls" {...rest}>
+      <Link href="/write">
+        <a className="UserControls__write-button">Write a Post</a>
+      </Link>
+
+      {isAuthenticated ? (
+        <div className="UserControls__authenticatedState-block">
+          <div className="UserControls__user-block">
+            <div className="UserControls__userInfo-block">
+              <div className="UserControls__userInfoName-text">
+                Paul McKittens
+              </div>
+
+              <div className="UserControls__userInfoUsername-text">
+                @paulmck
+              </div>
+            </div>
+
+            <UserAvatar size="medium"></UserAvatar>
+          </div>
+
+          <Link href="/admin">
+            <a>
+              <NormalTextButton>Admin Dashboard</NormalTextButton>
+            </a>
+          </Link>
+        </div>
+      ) : (
+        <Link href="/sign-in">
+          <a>
+            <NormalTextButton href="/">Sign In/Up</NormalTextButton>
+          </a>
+        </Link>
+      )}
+    </S.UserControls>
+  );
+};
+
 const S = {};
 
 S.UserControls = styled.div`
@@ -59,47 +101,5 @@ S.UserControls = styled.div`
     text-align: right;
   }
 `;
-
-const UserControls = ({ ...rest }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-
-  return (
-    <S.UserControls as="section" className="Home__UserControls" {...rest}>
-      <Link href="/write">
-        <a className="UserControls__write-button">Write a Post</a>
-      </Link>
-
-      {isAuthenticated ? (
-        <div className="UserControls__authenticatedState-block">
-          <div className="UserControls__user-block">
-            <div className="UserControls__userInfo-block">
-              <div className="UserControls__userInfoName-text">
-                Paul McKittens
-              </div>
-
-              <div className="UserControls__userInfoUsername-text">
-                @paulmck
-              </div>
-            </div>
-
-            <UserAvatar size="medium"></UserAvatar>
-          </div>
-
-          <Link href="/admin">
-            <a>
-              <NormalTextButton>Admin Dashboard</NormalTextButton>
-            </a>
-          </Link>
-        </div>
-      ) : (
-        <Link href="/sign-in">
-          <a>
-            <NormalTextButton href="/">Sign In/Up</NormalTextButton>
-          </a>
-        </Link>
-      )}
-    </S.UserControls>
-  );
-};
 
 export default UserControls;

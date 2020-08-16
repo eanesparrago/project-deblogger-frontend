@@ -26,12 +26,8 @@ const PostPage = () => {
 
             <div className="PostPage__author-block">
               <Link href="/profile/[username]" as="/profile/test">
-                <a>
-                  <UserAvatar
-                    className="PostPage__authorPhoto-UserAvatar"
-                    size="medium"
-                    responsive
-                  ></UserAvatar>
+                <a className="PostPage__authorPhoto-UserAvatar">
+                  <UserAvatar size="medium" responsive></UserAvatar>
                 </a>
               </Link>
 
