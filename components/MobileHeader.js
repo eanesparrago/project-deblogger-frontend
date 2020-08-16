@@ -5,28 +5,44 @@ import Link from "next/link";
 
 import DebloggerLogo from "components/DebloggerLogo";
 import UserAvatar from "components/UserAvatar";
+import MobileCategoryNav from "components/MobileCategoryNav";
 import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import NormalTextButton from "components/buttons/NormalTextButton";
 import FilledButton from "components/buttons/FilledButton";
 
 const MobileHeader = (props) => {
   const [isUserControlsOpen, setIsUserControlsOpen] = useState(false);
+  const [isMobileCategoryNavOpen, setIsMobileCategoryNavOpen] = useState(false);
 
-  const userControlsOpenClick = () => {
+  const openUserControls = () => {
     setIsUserControlsOpen(true);
   };
 
-  const userControlsCloseClick = () => {
+  const closeUserControls = () => {
     setIsUserControlsOpen(false);
   };
 
+  const toggleMobileCategoryNav = () => {
+    setIsMobileCategoryNavOpen(!isMobileCategoryNavOpen);
+  };
+
+  const closeMobileCategoryNav = () => {
+    setIsMobileCategoryNavOpen(false);
+  };
+
   return (
-    <S.MobileHeader as="header" {...props}>
-      <DebloggerLogo variant="initials"></DebloggerLogo>
+    <>
+      <S.MobileHeader as="header" {...props}>
+        <DebloggerLogo variant="initials"></DebloggerLogo>
 
-      <button className="MobileHeader__pageLabel-button">Homepage</button>
+        <button
+          className="MobileHeader__pageLabel-button"
+          onClick={toggleMobileCategoryNav}
+        >
+          Homepage
+        </button>
 
-      {/* <Link href="/sign-in" passHref={true}>
+        {/* <Link href="/sign-in" passHref={true}>
         <a>
           <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
             Sign In
@@ -34,14 +50,19 @@ const MobileHeader = (props) => {
         </a>
       </Link> */}
 
-      <UserAvatar as="button" onClick={userControlsOpenClick}></UserAvatar>
+        <UserAvatar as="button" onClick={openUserControls}></UserAvatar>
 
-      {isUserControlsOpen === true && (
-        <MobileUserControls
-          handleUserControlsCloseClick={userControlsCloseClick}
-        ></MobileUserControls>
+        {isUserControlsOpen === true && (
+          <MobileUserControls
+            handleCloseUserControls={closeUserControls}
+          ></MobileUserControls>
+        )}
+      </S.MobileHeader>
+
+      {isMobileCategoryNavOpen === true && (
+        <MobileCategoryNav></MobileCategoryNav>
       )}
-    </S.MobileHeader>
+    </>
   );
 };
 
@@ -74,7 +95,7 @@ S.MobileHeader = styled.div`
 `;
 
 const MobileUserControls = (props) => {
-  const { handleUserControlsCloseClick } = props;
+  const { handleCloseUserControls } = props;
 
   return (
     <S.MobileUserControls as="section" {...props}>
@@ -89,10 +110,7 @@ const MobileUserControls = (props) => {
           </div>
         </div>
 
-        <UserAvatar
-          as="button"
-          onClick={handleUserControlsCloseClick}
-        ></UserAvatar>
+        <UserAvatar as="button" onClick={handleCloseUserControls}></UserAvatar>
       </div>
 
       <FilledButton className="MobileUserControls__write-FilledButton">
@@ -114,7 +132,7 @@ const MobileUserControls = (props) => {
 
       <div
         className="MobileUserControls__background-graphic"
-        onClick={handleUserControlsCloseClick}
+        onClick={handleCloseUserControls}
       ></div>
     </S.MobileUserControls>
   );

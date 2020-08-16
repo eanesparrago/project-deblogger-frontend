@@ -1,5 +1,44 @@
-import React from "react";
 import styled from "styled-components";
+
+const Navbar = (props) => {
+  return (
+    <S.Navbar {...props}>
+      {/* <a href="/" className="Navbar__homepage Navbar__homepage--active">
+        Homepage
+      </a>
+      <a href="/" className="Navbar__development Navbar__development--active">
+        Development
+      </a>
+      <a href="/" className="Navbar__design Navbar__design--active">
+        Design
+      </a>
+      <a href="/" className="Navbar__lesson Navbar__lesson--active">
+        Lesson
+      </a>
+      <a href="/" className="Navbar__showcase Navbar__showcase--active">
+        Showcase
+      </a>
+      <a href="/" className="Navbar__devLife Navbar__devLife--active">
+        Dev Life
+      </a>
+      <a href="/" className="Navbar__random Navbar__random--active">
+        Random
+      </a>
+      <a href="/" className="Navbar__meta Navbar__meta--active">
+        Meta
+      </a> */}
+
+      <a className="Navbar__homepage">Homepage</a>
+      <a className="Navbar__development">Development</a>
+      <a className="Navbar__design">Design</a>
+      <a className="Navbar__lesson">Lesson</a>
+      <a className="Navbar__showcase">Showcase</a>
+      <a className="Navbar__devLife">Dev Life</a>
+      <a className="Navbar__random">Random</a>
+      <a className="Navbar__meta">Meta</a>
+    </S.Navbar>
+  );
+};
 
 const S = {};
 
@@ -98,44 +137,5 @@ S.Navbar = styled.nav`
     color: ${(p) => p.theme.color.dark};
   }
 `;
-const Navbar = (props) => {
-  return (
-    <S.Navbar {...props}>
-      {/* <a href="/" className="Navbar__homepage Navbar__homepage--active">
-        Homepage
-      </a>
-      <a href="/" className="Navbar__development Navbar__development--active">
-        Development
-      </a>
-      <a href="/" className="Navbar__design Navbar__design--active">
-        Design
-      </a>
-      <a href="/" className="Navbar__lesson Navbar__lesson--active">
-        Lesson
-      </a>
-      <a href="/" className="Navbar__showcase Navbar__showcase--active">
-        Showcase
-      </a>
-      <a href="/" className="Navbar__devLife Navbar__devLife--active">
-        Dev Life
-      </a>
-      <a href="/" className="Navbar__random Navbar__random--active">
-        Random
-      </a>
-      <a href="/" className="Navbar__meta Navbar__meta--active">
-        Meta
-      </a> */}
-
-      <a className="Navbar__homepage">Homepage</a>
-      <a className="Navbar__development">Development</a>
-      <a className="Navbar__design">Design</a>
-      <a className="Navbar__lesson">Lesson</a>
-      <a className="Navbar__showcase">Showcase</a>
-      <a className="Navbar__devLife">Dev Life</a>
-      <a className="Navbar__random">Random</a>
-      <a className="Navbar__meta">Meta</a>
-    </S.Navbar>
-  );
-};
 
 export default Navbar;
