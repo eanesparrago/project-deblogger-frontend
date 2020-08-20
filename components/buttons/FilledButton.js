@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const S = {};
 
@@ -20,6 +20,12 @@ S.FilledButton = styled.div`
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
     font-size: 1em;
   }
+
+  ${(p) =>
+    p.fullWidth === true &&
+    css`
+      width: 100%;
+    `}
 `;
 
 const FilledButton = ({ children, ...rest }) => {

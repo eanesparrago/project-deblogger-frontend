@@ -1,13 +1,64 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import DebloggerLogo from "components/DebloggerLogo";
 import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import FilledButton from "components/buttons/FilledButton";
 
+import { signup, authenticate } from "actions/auth";
+
 const SignInPage = () => {
+  const router = useRouter();
+
+  const signUpFormInitialState = {
+    username: "",
+    email: "",
+    password: "",
+  };
+
   const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
+  const [signUpFormState, setSignUpFormState] = useState({
+    ...signUpFormInitialState,
+  });
+
+  const handleUpFormChange = (e) => {
+    setSignUpFormState({ ...signUpFormState, [e.target.name]: e.target.value });
+  };
+
+  const submitSignUpForm = (e) => {
+    e.preventDefault();
+
+    console.log(signUpFormState);
+
+    signup({
+      user: {
+        username: signUpFormState.username,
+        email: signUpFormState.email,
+        password: signUpFormState.password,
+      },
+    }).then((data) => {
+      if (data.errors) {
+        let errorText = "";
+
+        data.errors.forEach((error) => {
+          errorText += `${error.msg}\r\n`;
+        });
+
+        alert(errorText);
+      } else {
+        setSignUpFormState({
+          ...signUpFormInitialState,
+        });
+        alert("Sign up successful");
+
+        authenticate(data, () => {
+          router.push("/");
+        });
+      }
+    });
+  };
 
   const handleSignUpFormOpenClick = () => {
     setIsSignUpFormOpen(true);
@@ -73,7 +124,7 @@ const SignInPage = () => {
 
           <h2 className="SignUpForm__heading-text">Sign Up</h2>
 
-          <form className="SignUpForm__form">
+          <form className="SignUpForm__form" onSubmit={submitSignUpForm}>
             <S.FormItem className="SignUpForm__usernameFormItem">
               <label className="FormItem__label-text" htmlFor="signUpUsername">
                 Username
@@ -83,6 +134,10 @@ const SignInPage = () => {
                 className="FormItem__input"
                 id="signUpUsername"
                 type="text"
+                name="username"
+                onChange={handleUpFormChange}
+                value={signUpFormState.username}
+                required
               />
             </S.FormItem>
 
@@ -95,6 +150,10 @@ const SignInPage = () => {
                 className="FormItem__input"
                 id="signUpEmail"
                 type="email"
+                name="email"
+                onChange={handleUpFormChange}
+                value={signUpFormState.email}
+                required
               />
             </S.FormItem>
 
@@ -107,10 +166,16 @@ const SignInPage = () => {
                 className="FormItem__input"
                 id="signUpPassword"
                 type="password"
+                name="password"
+                onChange={handleUpFormChange}
+                value={signUpFormState.password}
+                required
               />
             </S.FormItem>
 
-            <FilledButton type="submit">Sign Up</FilledButton>
+            <FilledButton as="button" type="submit" fullWidth>
+              Sign Up
+            </FilledButton>
           </form>
         </S.SignUpForm>
       )}

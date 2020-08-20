@@ -6,7 +6,7 @@ import NormalTextButton from "./buttons/NormalTextButton";
 import UserAvatar from "./UserAvatar";
 
 const UserControls = ({ ...rest }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <S.UserControls as="section" className="Home__UserControls" {...rest}>
