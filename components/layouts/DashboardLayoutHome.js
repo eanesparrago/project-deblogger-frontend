@@ -5,6 +5,7 @@ import Link from "next/link";
 import UserProfile from "components/compounds/UserProfile";
 import PostsBlock from "components/compounds/PostsBlock";
 import DashboardLayoutBase from "components/layouts/DashboardLayoutBase";
+import UserProfileContainerDashboard from "components/containers/UserProfileContainerDashboard";
 
 import { getAuth } from "actions/auth";
 
@@ -22,10 +23,10 @@ const DashboardLayoutMain = (props) => {
   return (
     <S.DashboardLayoutMain {...props}>
       <DashboardLayoutBase {...props}>
-        <UserProfile
+        <UserProfileContainerDashboard
           className="DashboardLayout__UserProfile"
           data={auth}
-        ></UserProfile>
+        ></UserProfileContainerDashboard>
 
         <div className="DashboardLayout__control-group">
           <Link href="/user/update">

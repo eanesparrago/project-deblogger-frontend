@@ -1,4 +1,4 @@
-import { API } from "../config";
+import { API } from "configs/config";
 
 export const getBlogs = (username) => {
   let listBlogsEndpoint = `${API}/blogs`;

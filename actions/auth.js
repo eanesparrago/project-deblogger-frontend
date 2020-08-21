@@ -1,6 +1,6 @@
 import fetch from "isomorphic-fetch";
 import cookie from "js-cookie";
-import { API } from "../config";
+import { API } from "configs/config";
 import Router from "next/router";
 
 export const handleResponse = (response) => {

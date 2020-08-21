@@ -1,19 +1,23 @@
 import styled from "styled-components";
 
 const UserProfile = (props) => {
-  const { data: { name, username, bio } = {} } = props;
+  const { data: { name, username, bio } = {}, photoImgSrc } = props;
 
-  const profilePictureUrl = `https://robohash.org/${username}`;
+  const imgSrcComputed = photoImgSrc ? photoImgSrc : "/static/images/cat_01.jpg";
+
   const profilePictureAltText = `Profile picture of ${username}`;
+
   const nameText = name ? name : "No One";
+
   const usernameText = `@${username}`;
+
   const bioText = bio ? bio : "Bio not found";
 
   return (
     <S.UserProfile {...props}>
       <div className="UserProfile__userPhoto-wrapper">
         <img
-          src={profilePictureUrl}
+          src={imgSrcComputed}
           alt={profilePictureAltText}
           className="UserProfile__userPhoto-image"
         />

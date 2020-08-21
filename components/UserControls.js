@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import NormalTextButton from "components/buttons/NormalTextButton";
 import UserAvatar from "components/UserAvatar";
+import UserAvatarContainer from "components/containers/UserAvatarContainer";
 
 import { getAuth } from "actions/auth";
 
@@ -46,7 +47,7 @@ const UserControls = ({ ...rest }) => {
               </div>
             </div>
 
-            <UserAvatar size="medium"></UserAvatar>
+            <UserAvatarContainer size="medium"></UserAvatarContainer>
           </div>
 
           <NormalTextButton as="button" onClick={goToDashboard}>

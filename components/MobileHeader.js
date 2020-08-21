@@ -8,6 +8,7 @@ import MobileCategoryNav from "components/MobileCategoryNav";
 import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import NormalTextButton from "components/buttons/NormalTextButton";
 import FilledButton from "components/buttons/FilledButton";
+import UserAvatarContainer from "components/containers/UserAvatarContainer";
 
 import { getAuth } from "actions/auth";
 
@@ -46,7 +47,10 @@ const MobileHeader = (props) => {
 
         {auth ? (
           <>
-            <UserAvatar as="button" onClick={openUserControls}></UserAvatar>
+            <UserAvatarContainer
+              as="button"
+              onClick={openUserControls}
+            ></UserAvatarContainer>
 
             {isUserControlsOpen === true && (
               <MobileUserControls
@@ -116,7 +120,10 @@ const MobileUserControls = (props) => {
           </div>
         </div>
 
-        <UserAvatar as="button" onClick={handleCloseUserControls}></UserAvatar>
+        <UserAvatarContainer
+          as="button"
+          onClick={handleCloseUserControls}
+        ></UserAvatarContainer>
       </div>
 
       <FilledButton className="MobileUserControls__write-FilledButton">

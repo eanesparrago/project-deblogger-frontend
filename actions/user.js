@@ -1,6 +1,6 @@
 import fetch from "isomorphic-fetch";
 import { handleResponse } from "actions/auth";
-import { API } from "../config";
+import { API } from "configs/config";
 
 // Get profile
 export const getProfile = (token) => {

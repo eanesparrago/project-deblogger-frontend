@@ -29,9 +29,8 @@ const UpdateUserPage = () => {
       if (data.error) {
         alert("An error occurred");
       } else {
-        console.log("data", data);
-
         setFormState({
+          ...formState,
           username: data.user.username,
           name: data.user.name ? data.user.name : "",
           email: data.user.email,
