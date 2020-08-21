@@ -87,3 +87,19 @@ export const signup = (user) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const signOut = (next) => {
+  removeCookie("token");
+  removeLocalStorage("user");
+  next();
+
+  return fetch(`${API}/signout`, {
+    method: "GET",
+  })
+    .then((response) => {
+      console.log("Signout success");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

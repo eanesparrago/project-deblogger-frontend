@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import UserControls from "components/UserControls";
 import DebloggerLogo from "components/DebloggerLogo";
@@ -7,7 +8,7 @@ import Navbar from "components/Navbar";
 import MobileHeader from "components/MobileHeader";
 import NormalTextButton from "components/buttons/NormalTextButton";
 
-import { getAuth } from "actions/auth";
+import { getAuth, signOut } from "actions/auth";
 
 /*
 Props
@@ -16,9 +17,19 @@ variant - "normal" (default), "dashboard"
 const CommonLayout = (props) => {
   const { children, variant = "normal" } = props;
 
+  const router = useRouter();
+
   const navbar = variant === "dashboard" ? null : <Navbar></Navbar>;
 
   const auth = getAuth();
+
+  const logOut = () => {
+    signOut(() => {
+      alert("Logged out successfully");
+      
+      router.push("/");
+    });
+  };
 
   return (
     <S.CommonLayout>
@@ -48,8 +59,10 @@ const CommonLayout = (props) => {
 
       {auth && (
         <NormalTextButton
+          as="button"
           className="CommonLayout__logOut-NormalTextButton"
           variant="muted"
+          onClick={logOut}
         >
           Log Out
         </NormalTextButton>

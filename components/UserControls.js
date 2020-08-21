@@ -8,8 +8,6 @@ import UserAvatar from "components/UserAvatar";
 import { getAuth } from "actions/auth";
 
 const UserControls = ({ ...rest }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const auth = getAuth();
 
   let nameText;
