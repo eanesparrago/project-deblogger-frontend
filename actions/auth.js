@@ -60,7 +60,7 @@ export const authenticate = (data, next) => {
   next();
 };
 
-export const isAuth = () => {
+export const getAuth = () => {
   if (process.browser) {
     const cookieChecked = getCookie("token");
     if (cookieChecked) {

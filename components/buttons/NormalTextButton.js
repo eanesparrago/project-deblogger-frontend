@@ -5,6 +5,7 @@ const S = {};
 /*
 Options
 color - red
+variant - "muted"
 */
 const NormalTextButton = ({ children, ...rest }) => {
   return <S.NormalTextButton {...rest}>{children}</S.NormalTextButton>;
@@ -26,6 +27,12 @@ S.NormalTextButton = styled.div`
     p.color === "red" &&
     css`
       color: ${(p) => p.theme.color.red};
+    `}
+
+  ${(p) =>
+    p.variant === "muted" &&
+    css`
+      color: ${(p) => p.theme.color.grey};
     `}
 `;
 

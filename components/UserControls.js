@@ -2,11 +2,29 @@ import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-import NormalTextButton from "./buttons/NormalTextButton";
-import UserAvatar from "./UserAvatar";
+import NormalTextButton from "components/buttons/NormalTextButton";
+import UserAvatar from "components/UserAvatar";
+
+import { getAuth } from "actions/auth";
 
 const UserControls = ({ ...rest }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const auth = getAuth();
+
+  let nameText;
+  let usernameText;
+  let dashboardLinkText;
+
+  if (auth) {
+    nameText = auth.name ? auth.name : "No One";
+
+    usernameText = `@${auth.username}`;
+
+    dashboardLinkText = auth.role === 1 ? "Admin Dashboard" : "My Dashboard";
+  }
+
+  console.log(auth);
 
   return (
     <S.UserControls as="section" className="Home__UserControls" {...rest}>
@@ -14,16 +32,14 @@ const UserControls = ({ ...rest }) => {
         <a className="UserControls__write-button">Write a Post</a>
       </Link>
 
-      {isAuthenticated ? (
+      {auth ? (
         <div className="UserControls__authenticatedState-block">
           <div className="UserControls__user-block">
             <div className="UserControls__userInfo-block">
-              <div className="UserControls__userInfoName-text">
-                Paul McKittens
-              </div>
+              <div className="UserControls__userInfoName-text">{nameText}</div>
 
               <div className="UserControls__userInfoUsername-text">
-                @paulmck
+                {usernameText}
               </div>
             </div>
 
@@ -32,7 +48,7 @@ const UserControls = ({ ...rest }) => {
 
           <Link href="/admin">
             <a>
-              <NormalTextButton>Admin Dashboard</NormalTextButton>
+              <NormalTextButton>{dashboardLinkText}</NormalTextButton>
             </a>
           </Link>
         </div>
@@ -80,6 +96,7 @@ S.UserControls = styled.div`
   .UserControls__user-block {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     margin-bottom: ${(p) => p.theme.size[16]};
   }
 

@@ -5,6 +5,9 @@ import UserControls from "components/UserControls";
 import DebloggerLogo from "components/DebloggerLogo";
 import Navbar from "components/Navbar";
 import MobileHeader from "components/MobileHeader";
+import NormalTextButton from "components/buttons/NormalTextButton";
+
+import { getAuth } from "actions/auth";
 
 /*
 Props
@@ -14,6 +17,8 @@ const CommonLayout = (props) => {
   const { children, variant = "normal" } = props;
 
   const navbar = variant === "dashboard" ? null : <Navbar></Navbar>;
+
+  const auth = getAuth();
 
   return (
     <S.CommonLayout>
@@ -40,6 +45,15 @@ const CommonLayout = (props) => {
         as="section"
         className="CommonLayout__UserControls"
       ></UserControls>
+
+      {auth && (
+        <NormalTextButton
+          className="CommonLayout__logOut-NormalTextButton"
+          variant="muted"
+        >
+          Log Out
+        </NormalTextButton>
+      )}
     </S.CommonLayout>
   );
 };
@@ -87,6 +101,16 @@ S.CommonLayout = styled.div`
   @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
     .CommonLayout__MobileHeader {
       display: flex;
+    }
+  }
+
+  .CommonLayout__logOut-NormalTextButton {
+    position: fixed;
+    right: ${(p) => p.theme.size[48]};
+    bottom: ${(p) => p.theme.size[32]};
+
+    @media (max-width: ${(p) => p.theme.breakpoint.desktopL}) {
+      display: none;
     }
   }
 `;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -10,9 +9,12 @@ import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import NormalTextButton from "components/buttons/NormalTextButton";
 import FilledButton from "components/buttons/FilledButton";
 
+import { getAuth } from "actions/auth";
+
 const MobileHeader = (props) => {
   const [isUserControlsOpen, setIsUserControlsOpen] = useState(false);
   const [isMobileCategoryNavOpen, setIsMobileCategoryNavOpen] = useState(false);
+  const auth = getAuth();
 
   const openUserControls = () => {
     setIsUserControlsOpen(true);
@@ -42,20 +44,24 @@ const MobileHeader = (props) => {
           Homepage
         </button>
 
-        {/* <Link href="/sign-in" passHref={true}>
-        <a>
-          <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
-            Sign In
-          </UppercaseTextButton>
-        </a>
-      </Link> */}
+        {auth ? (
+          <>
+            <UserAvatar as="button" onClick={openUserControls}></UserAvatar>
 
-        <UserAvatar as="button" onClick={openUserControls}></UserAvatar>
-
-        {isUserControlsOpen === true && (
-          <MobileUserControls
-            handleCloseUserControls={closeUserControls}
-          ></MobileUserControls>
+            {isUserControlsOpen === true && (
+              <MobileUserControls
+                handleCloseUserControls={closeUserControls}
+              ></MobileUserControls>
+            )}
+          </>
+        ) : (
+          <Link href="/sign-in" passHref={true}>
+            <a>
+              <UppercaseTextButton className="MobileHeader__UppercaseTextButton">
+                Sign In
+              </UppercaseTextButton>
+            </a>
+          </Link>
         )}
       </S.MobileHeader>
 
