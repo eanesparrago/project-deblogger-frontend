@@ -7,11 +7,12 @@ import DebloggerLogo from "components/DebloggerLogo";
 import UppercaseTextButton from "components/buttons/UppercaseTextButton";
 import FilledButton from "components/buttons/FilledButton";
 
-import { signup, authenticate } from "actions/auth";
+import { signUp, signIn, authenticate } from "actions/auth";
 
 const SignInPage = () => {
   const router = useRouter();
 
+  // Sign up logic
   const signUpFormInitialState = {
     username: "",
     email: "",
@@ -23,16 +24,14 @@ const SignInPage = () => {
     ...signUpFormInitialState,
   });
 
-  const handleUpFormChange = (e) => {
+  const handleSignUpFormChange = (e) => {
     setSignUpFormState({ ...signUpFormState, [e.target.name]: e.target.value });
   };
 
   const submitSignUpForm = (e) => {
     e.preventDefault();
 
-    console.log(signUpFormState);
-
-    signup({
+    signUp({
       user: {
         username: signUpFormState.username,
         email: signUpFormState.email,
@@ -51,7 +50,7 @@ const SignInPage = () => {
         setSignUpFormState({
           ...signUpFormInitialState,
         });
-        alert("Sign up successful");
+        alert("Sign up successful. Please remember your email and password.");
 
         authenticate(data, () => {
           router.push("/");
@@ -67,6 +66,45 @@ const SignInPage = () => {
   const handleCloseSignUpFormClick = () => {
     setIsSignUpFormOpen(false);
   };
+  // End of sign up logic
+
+  // Sign in logic
+  const signInFormInitialState = {
+    email: "",
+    password: "",
+  };
+
+  const [signInFormState, setsignInFormState] = useState({
+    ...signInFormInitialState,
+  });
+
+  const handleSignInFormChange = (e) => {
+    setsignInFormState({ ...signInFormState, [e.target.name]: e.target.value });
+  };
+
+  const submitSignInForm = (e) => {
+    e.preventDefault();
+
+    signIn({
+      user: {
+        email: signInFormState.email,
+        password: signInFormState.password,
+      },
+    }).then((data) => {
+      if (data.errors) {
+        alert("Error occurred");
+      } else {
+        setsignInFormState({
+          ...signInFormInitialState,
+        });
+        alert("Sign in successful");
+
+        authenticate(data, () => {
+          router.push("/");
+        });
+      }
+    });
+  };
 
   return (
     <S.SignInPage>
@@ -81,13 +119,21 @@ const SignInPage = () => {
         </a>
       </Link>
 
-      <form className="SignInPage__form">
+      <form className="SignInPage__form" onSubmit={submitSignInForm}>
         <S.FormItem className="SignInPage__emailFormItem">
           <label className="FormItem__label-text" htmlFor="logInEmail">
             Email
           </label>
 
-          <input className="FormItem__input" id="logInEmail" type="email" />
+          <input
+            className="FormItem__input"
+            id="logInEmail"
+            type="email"
+            name="email"
+            onChange={handleSignInFormChange}
+            value={signInFormState.email}
+            required
+          />
         </S.FormItem>
 
         <S.FormItem className="SignInPage__passwordFormItem">
@@ -99,10 +145,19 @@ const SignInPage = () => {
             className="FormItem__input"
             id="logInPassword"
             type="password"
+            name="password"
+            onChange={handleSignInFormChange}
+            value={signInFormState.password}
+            required
           />
         </S.FormItem>
 
-        <FilledButton className="FilledButton" type="submit">
+        <FilledButton
+          as="button"
+          className="FilledButton"
+          type="submit"
+          fullWidth
+        >
           Log In
         </FilledButton>
       </form>
@@ -135,7 +190,7 @@ const SignInPage = () => {
                 id="signUpUsername"
                 type="text"
                 name="username"
-                onChange={handleUpFormChange}
+                onChange={handleSignUpFormChange}
                 value={signUpFormState.username}
                 required
               />
@@ -151,7 +206,7 @@ const SignInPage = () => {
                 id="signUpEmail"
                 type="email"
                 name="email"
-                onChange={handleUpFormChange}
+                onChange={handleSignUpFormChange}
                 value={signUpFormState.email}
                 required
               />
@@ -167,7 +222,7 @@ const SignInPage = () => {
                 id="signUpPassword"
                 type="password"
                 name="password"
-                onChange={handleUpFormChange}
+                onChange={handleSignUpFormChange}
                 value={signUpFormState.password}
                 required
               />
