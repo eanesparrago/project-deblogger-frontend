@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
 import Link from "next/link";
+import moment from "moment";
 
 import NormalTextButton from "components/buttons/NormalTextButton";
+import MutedText from "components/MutedText";
 
 const S = {};
 
@@ -10,17 +12,25 @@ Options
 variant = "default", "withControls"
 */
 const PostsBlock = (props) => {
-  const { headingText = "Posts", variant } = props;
+  const { variant, headingText = "Posts", postsData = [] } = props;
 
   return (
     <S.PostsBlock {...props}>
       <h2 className="PostsBlock__postsHeading-text">{headingText}</h2>
 
-      <ol className="PostsBlock__posts-group">
-        <PostItem variant={variant}></PostItem>
-        <PostItem variant={variant}></PostItem>
-        <PostItem variant={variant}></PostItem>
-      </ol>
+      {postsData.length > 0 ? (
+        <ol className="PostsBlock__posts-group">
+          {postsData.map((postData) => (
+            <PostItem
+              variant={variant}
+              postData={postData}
+              key={postData._id}
+            ></PostItem>
+          ))}
+        </ol>
+      ) : (
+        <MutedText>No posts to show</MutedText>
+      )}
     </S.PostsBlock>
   );
 };
@@ -50,17 +60,17 @@ Options
 variant = "default", "withControls"
 */
 const PostItem = (props) => {
-  const { variant } = props;
+  const { variant, postData } = props;
 
   const withControls = variant === "withControls" ? true : false;
 
   return (
     <S.PostItem as="li" {...props}>
-      <span className="PostItem__title-text">
-        The Quick Brown Fox Jumps Over The Lazy Dog
-      </span>
+      <span className="PostItem__title-text">{postData.title}</span>
 
-      <span className="PostItem__date-text">2020-08-12</span>
+      <span className="PostItem__date-text">
+        {moment(postData.createdAt).format("YYYY-MM-DD")}
+      </span>
 
       {withControls && (
         <div className="PostItem__controls-group">

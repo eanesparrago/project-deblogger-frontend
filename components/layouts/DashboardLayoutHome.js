@@ -15,7 +15,7 @@ headingText - String
 withBackButton - Boolean
  */
 const DashboardLayoutMain = (props) => {
-  const { variant } = props;
+  const { variant, postsData = [] } = props;
 
   const auth = getAuth();
 
@@ -49,6 +49,7 @@ const DashboardLayoutMain = (props) => {
           as="section"
           headingText="My Posts"
           variant="withControls"
+          postsData={postsData}
         ></PostsBlock>
       </DashboardLayoutBase>
     </S.DashboardLayoutMain>
