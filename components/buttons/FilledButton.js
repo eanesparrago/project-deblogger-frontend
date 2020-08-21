@@ -1,13 +1,16 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+const FilledButton = ({ children, ...rest }) => {
+  return <S.FilledButton {...rest}>{children}</S.FilledButton>;
+};
+
 const S = {};
 
 S.FilledButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 100%; */
   height: ${(p) => p.theme.size[48]};
   padding-left: ${(p) => p.theme.size[24]};
   padding-right: ${(p) => p.theme.size[24]};
@@ -27,9 +30,5 @@ S.FilledButton = styled.div`
       width: 100%;
     `}
 `;
-
-const FilledButton = ({ children, ...rest }) => {
-  return <S.FilledButton {...rest}>{children}</S.FilledButton>;
-};
 
 export default FilledButton;

@@ -10,11 +10,11 @@ import { getBlogs } from "actions/blog";
 const UserPage = () => {
   const auth = getAuth();
 
-  const [data, setData] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     getBlogs(auth.username).then((data) => {
-      setData(data);
+      setPosts(data);
       console.log(data);
     });
   }, []);
@@ -26,6 +26,7 @@ const UserPage = () => {
           variant="member"
           headingText="Your Dashboard"
           withBackButton={false}
+          postsData={posts}
         ></DashboardLayoutHome>
       </S.UserPage>
     </CommonLayout>
