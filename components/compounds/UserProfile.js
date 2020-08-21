@@ -1,27 +1,30 @@
 import styled from "styled-components";
 
 const UserProfile = (props) => {
+  const { data: { name, username, bio } = {} } = props;
+
+  const profilePictureUrl = `https://robohash.org/${username}`;
+  const profilePictureAltText = `Profile picture of ${username}`;
+  const nameText = name ? name : "No One";
+  const usernameText = `@${username}`;
+  const bioText = bio ? bio : "Bio not found";
+
   return (
     <S.UserProfile {...props}>
       <div className="UserProfile__userPhoto-wrapper">
         <img
-          src="/static/images/cat_01.jpg"
-          alt=""
+          src={profilePictureUrl}
+          alt={profilePictureAltText}
           className="UserProfile__userPhoto-image"
         />
       </div>
 
       <div className="UserProfile__userText-block">
-        <h1 className="UserProfile__userName-text">Kat Meows</h1>
+        <h1 className="UserProfile__userName-text">{nameText}</h1>
 
-        <div className="UserProfile__userUsername-text">@katmeows44</div>
+        <div className="UserProfile__userUsername-text">{usernameText}</div>
 
-        <p className="UserProfile__userBio-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, facere
-          quas, repellendus commodi voluptatum facilis fugit, eos doloribus
-          cupiditate ut voluptatem nostrum porro unde odio a error ipsam harum
-          quisquam.
-        </p>
+        <p className="UserProfile__userBio-text">{bioText}</p>
       </div>
     </S.UserProfile>
   );
@@ -44,6 +47,7 @@ S.UserProfile = styled.div`
     overflow: hidden;
     margin-right: ${(p) => p.theme.size[32]};
     flex-shrink: 0;
+    background-color: ${(p) => p.theme.color.black};
   }
   @media (max-width: ${(p) => p.theme.breakpoint.tabletPortrait}) {
     .UserProfile__userPhoto-wrapper {

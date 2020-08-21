@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import NormalTextButton from "components/buttons/NormalTextButton";
 import UserAvatar from "components/UserAvatar";
@@ -8,6 +8,7 @@ import UserAvatar from "components/UserAvatar";
 import { getAuth } from "actions/auth";
 
 const UserControls = ({ ...rest }) => {
+  const router = useRouter();
   const auth = getAuth();
 
   let nameText;
@@ -22,7 +23,11 @@ const UserControls = ({ ...rest }) => {
     dashboardLinkText = auth.role === 1 ? "Admin Dashboard" : "My Dashboard";
   }
 
-  console.log(auth);
+  const goToDashboard = () => {
+    const link = auth.role === 1 ? "/admin" : "/user";
+
+    router.push(link);
+  };
 
   return (
     <S.UserControls as="section" className="Home__UserControls" {...rest}>
@@ -44,11 +49,9 @@ const UserControls = ({ ...rest }) => {
             <UserAvatar size="medium"></UserAvatar>
           </div>
 
-          <Link href="/admin">
-            <a>
-              <NormalTextButton>{dashboardLinkText}</NormalTextButton>
-            </a>
-          </Link>
+          <NormalTextButton as="button" onClick={goToDashboard}>
+            {dashboardLinkText}
+          </NormalTextButton>
         </div>
       ) : (
         <Link href="/sign-in">

@@ -6,6 +6,8 @@ import UserProfile from "components/compounds/UserProfile";
 import PostsBlock from "components/compounds/PostsBlock";
 import DashboardLayoutBase from "components/layouts/DashboardLayoutBase";
 
+import { getAuth } from "actions/auth";
+
 /*
 Props
 variant - "admin" (default), "member"
@@ -15,10 +17,15 @@ withBackButton - Boolean
 const DashboardLayoutMain = (props) => {
   const { variant } = props;
 
+  const auth = getAuth();
+
   return (
     <S.DashboardLayoutMain {...props}>
       <DashboardLayoutBase {...props}>
-        <UserProfile className="DashboardLayout__UserProfile"></UserProfile>
+        <UserProfile
+          className="DashboardLayout__UserProfile"
+          data={auth}
+        ></UserProfile>
 
         <div className="DashboardLayout__control-group">
           <Link href="/user/update">
